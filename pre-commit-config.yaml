@@ -28,7 +28,7 @@
 
   <meta name="viewport" content="width=device-width">
   
-  <title>PythonProjectTemplate/requirements.dev.txt at master · dafrenchyman/PythonProjectTemplate</title>
+  <title>PythonProjectTemplate/.pre-commit-config.yaml at master · dafrenchyman/PythonProjectTemplate</title>
     <meta name="description" content="Contribute to dafrenchyman/PythonProjectTemplate development by creating an account on GitHub.">
     <link rel="search" type="application/opensearchdescription+xml" href="/opensearch.xml" title="GitHub">
   <link rel="fluid-icon" href="https://github.com/fluidicon.png" title="GitHub">
@@ -43,10 +43,10 @@
   
 
   <link rel="assets" href="https://github.githubassets.com/">
-    <link rel="shared-web-socket" href="wss://alive.github.com/_sockets/u/33378682/ws?session=eyJ2IjoiVjMiLCJ1IjozMzM3ODY4MiwicyI6NTc2OTEwMTQyLCJjIjoyMTg5NzMxNTUyLCJ0IjoxNTk5MDEwNjQ1fQ==--f64677959faa48b155bd2083ff4ef85cf84a4207f8f42855166f44b091a0060a" data-refresh-url="/_alive">
+    <link rel="shared-web-socket" href="wss://alive.github.com/_sockets/u/33378682/ws?session=eyJ2IjoiVjMiLCJ1IjozMzM3ODY4MiwicyI6NTc2OTEwMTQyLCJjIjozNDY0OTY2NjY2LCJ0IjoxNTk5MDEwNjIyfQ==--ac1c3cd32cf656e8d721069040200145f40ae03676da9dd295568ec00e67b352" data-refresh-url="/_alive">
   <link rel="sudo-modal" href="/sessions/sudo_modal">
 
-  <meta name="request-id" content="C42B:46AF:FB32EC:1535A19:5F4EF73E" data-pjax-transient="true" /><meta name="html-safe-nonce" content="e758d092fb99c74ade133024ef215fe3c7f9472e" data-pjax-transient="true" /><meta name="visitor-payload" content="eyJyZWZlcnJlciI6Imh0dHBzOi8vZ2l0aHViLmNvbS9kYWZyZW5jaHltYW4vUHl0aG9uUHJvamVjdFRlbXBsYXRlIiwicmVxdWVzdF9pZCI6IkM0MkI6NDZBRjpGQjMyRUM6MTUzNUExOTo1RjRFRjczRSIsInZpc2l0b3JfaWQiOiI2Nzc2Mzc0MDcwMDYzNTkyODg0IiwicmVnaW9uX2VkZ2UiOiJzZWEiLCJyZWdpb25fcmVuZGVyIjoiaWFkIn0=" data-pjax-transient="true" /><meta name="visitor-hmac" content="b980acef218aa06c6ff3d9e07307b1c01187dfc776ef6fb5c8e8fa925c7ce82e" data-pjax-transient="true" /><meta name="cookie-consent-required" content="false" />
+  <meta name="request-id" content="C42B:46AF:FB30D3:1535813:5F4EF732" data-pjax-transient="true" /><meta name="html-safe-nonce" content="e758d092fb99c74ade133024ef215fe3c7f9472e" data-pjax-transient="true" /><meta name="visitor-payload" content="eyJyZWZlcnJlciI6Imh0dHBzOi8vZ2l0aHViLmNvbS9kYWZyZW5jaHltYW4vUHl0aG9uUHJvamVjdFRlbXBsYXRlIiwicmVxdWVzdF9pZCI6IkM0MkI6NDZBRjpGQjMwRDM6MTUzNTgxMzo1RjRFRjczMiIsInZpc2l0b3JfaWQiOiI2Nzc2Mzc0MDcwMDYzNTkyODg0IiwicmVnaW9uX2VkZ2UiOiJzZWEiLCJyZWdpb25fcmVuZGVyIjoiaWFkIn0=" data-pjax-transient="true" /><meta name="visitor-hmac" content="4b8f64b822f35ea35052006e6b83299e17788045559aa6355e1f35d72bdac2f8" data-pjax-transient="true" /><meta name="cookie-consent-required" content="false" />
 
     <meta name="hovercard-subject-tag" content="repository:252789243" data-pjax-transient>
 
@@ -89,7 +89,7 @@
 
       <meta name="expected-hostname" content="github.com">
 
-      <meta name="js-proxy-site-detection-payload" content="OTk5NDFiZGJlMTRmMGM4Yzg5MjEyMzZmYTc3NzRlYWM3ODBmYzFiM2ZhYTVhNmEyNzM1ZDcxZjM4NzBmZTEyZnx7InJlbW90ZV9hZGRyZXNzIjoiNzYuODguNi4yIiwicmVxdWVzdF9pZCI6IkM0MkI6NDZBRjpGQjMyRUM6MTUzNUExOTo1RjRFRjczRSIsInRpbWVzdGFtcCI6MTU5OTAxMDY0NSwiaG9zdCI6ImdpdGh1Yi5jb20ifQ==">
+      <meta name="js-proxy-site-detection-payload" content="MzYxOWQxMDgxZjdiNWU5ODFhN2RmZjM0NWFiM2Q4NThlZWUyZjc5YTkwZWJiZDVlN2E5YTkyZjRmZDdlYWQ2OHx7InJlbW90ZV9hZGRyZXNzIjoiNzYuODguNi4yIiwicmVxdWVzdF9pZCI6IkM0MkI6NDZBRjpGQjMwRDM6MTUzNTgxMzo1RjRFRjczMiIsInRpbWVzdGFtcCI6MTU5OTAxMDYyMiwiaG9zdCI6ImdpdGh1Yi5jb20ifQ==">
 
     <meta name="enabled-features" content="MARKETPLACE_PENDING_INSTALLATIONS,JS_HTTP_CACHE_HEADERS">
 
@@ -103,7 +103,7 @@
   <meta name="octolytics-dimension-user_id" content="5175500" /><meta name="octolytics-dimension-user_login" content="dafrenchyman" /><meta name="octolytics-dimension-repository_id" content="252789243" /><meta name="octolytics-dimension-repository_nwo" content="dafrenchyman/PythonProjectTemplate" /><meta name="octolytics-dimension-repository_public" content="true" /><meta name="octolytics-dimension-repository_is_fork" content="false" /><meta name="octolytics-dimension-repository_network_root_id" content="252789243" /><meta name="octolytics-dimension-repository_network_root_nwo" content="dafrenchyman/PythonProjectTemplate" /><meta name="octolytics-dimension-repository_explore_github_marketplace_ci_cta_shown" content="false" />
 
 
-    <link rel="canonical" href="https://github.com/dafrenchyman/PythonProjectTemplate/blob/master/requirements.dev.txt" data-pjax-transient>
+    <link rel="canonical" href="https://github.com/dafrenchyman/PythonProjectTemplate/blob/master/.pre-commit-config.yaml" data-pjax-transient>
 
 
   <meta name="browser-stats-url" content="https://api.github.com/_private/browser/stats">
@@ -175,7 +175,7 @@
           spellcheck="false"
           autocomplete="off"
           >
-          <input type="hidden" value="TxBlOeI4cN/JfQ4gc2TbIzQPoU/A/j9e7M5NRhKgdpDfmUeiunwZMGL+B7qnNNvHtw1lhKyzwzH27B9oFbhkaA==" data-csrf="true" class="js-data-jump-to-suggestions-path-csrf" />
+          <input type="hidden" value="T4j3ylfqh1c1TUSyBJSS/vUyfB0UOkvVfQozt0JzjTjfAdVRD67uuJ7OTSjQxJIadjC41nh3t7pnKGGZRWufwA==" data-csrf="true" class="js-data-jump-to-suggestions-path-csrf" />
           <input type="hidden" class="js-site-search-type-field" name="type" >
             <img src="https://github.githubassets.com/images/search-key-slash.svg" alt="" class="mr-2 header-search-key-slash">
 
@@ -326,7 +326,7 @@
       <img class="avatar avatar-user" src="https://avatars3.githubusercontent.com/u/33378682?s=40&amp;v=4" width="20" height="20" alt="@gramadin" />
       gramadin
 </a>
-    <!-- '"` --><!-- </textarea></xmp> --></option></form><form action="/logout" accept-charset="UTF-8" method="post"><input type="hidden" name="authenticity_token" value="BKd0ytyIGZKgsMErDjTiR4mZenxLyosFJ2SzX1MCwi/kwKwr6LrZU56Okopf+PM7MkBzhdDdMIg/dn+S7TF4fA==" />
+    <!-- '"` --><!-- </textarea></xmp> --></option></form><form action="/logout" accept-charset="UTF-8" method="post"><input type="hidden" name="authenticity_token" value="YT4cKNBNN0BtOUb0VeYDzHrRt9Aqf1Rw774b+gJANAWBWcTJ5H/3gVMHFVUEKhKwwQi+KbFo7/33rNc3vHOOVg==" />
       <button type="submit" class="Header-link mr-0 mr-md-3 py-2 py-md-3 border-top border-md-top-0 border-white-fade-15 d-md-none btn-link d-block width-full text-left" data-ga-click="Header, sign out, icon:logout" style="padding-left: 2px;">
         <svg class="octicon octicon-sign-out v-align-middle" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M2 2.75C2 1.784 2.784 1 3.75 1h2.5a.75.75 0 010 1.5h-2.5a.25.25 0 00-.25.25v10.5c0 .138.112.25.25.25h2.5a.75.75 0 010 1.5h-2.5A1.75 1.75 0 012 13.25V2.75zm10.44 4.5H6.75a.75.75 0 000 1.5h5.69l-1.97 1.97a.75.75 0 101.06 1.06l3.25-3.25a.75.75 0 000-1.06l-3.25-3.25a.75.75 0 10-1.06 1.06l1.97 1.97z"></path></svg>
         Sign out
@@ -346,7 +346,7 @@
   <div class="Header-item mr-0 mr-md-3 flex-order-1 flex-md-order-none">
     
 
-    <notification-indicator class="js-socket-channel" data-channel="eyJjIjoibm90aWZpY2F0aW9uLWNoYW5nZWQ6MzMzNzg2ODIiLCJ0IjoxNTk5MDEwNjQ1fQ==--767145e85e8734aecaeb85b494f0786ee024d53cd30d1e736e85e0e49fe24a67">
+    <notification-indicator class="js-socket-channel" data-channel="eyJjIjoibm90aWZpY2F0aW9uLWNoYW5nZWQ6MzMzNzg2ODIiLCJ0IjoxNTk5MDEwNjIyfQ==--ce55ee147c696f86e915f9d4423fb0aa1e038e86515f3b5a39502bb1f0819ad4">
       <a href="/notifications"
          class="Header-link notification-indicator position-relative tooltipped tooltipped-sw"
          aria-label="You have no unread notifications"
@@ -428,7 +428,7 @@
   data-team-hovercards-enabled>
   <details class="js-user-status-details details-reset details-overlay details-overlay-dark">
     <summary class="btn-link btn-block link-gray no-underline js-toggle-user-status-edit toggle-user-status-edit "
-      role="menuitem" data-hydro-click="{&quot;event_type&quot;:&quot;user_profile.click&quot;,&quot;payload&quot;:{&quot;profile_user_id&quot;:5175500,&quot;target&quot;:&quot;EDIT_USER_STATUS&quot;,&quot;user_id&quot;:33378682,&quot;originating_url&quot;:&quot;https://github.com/dafrenchyman/PythonProjectTemplate/blob/master/requirements.dev.txt&quot;}}" data-hydro-click-hmac="06442e447e111a789a34c9f32d6eb1c240d7aa2680ca4426c9097665a3e6bb9a">
+      role="menuitem" data-hydro-click="{&quot;event_type&quot;:&quot;user_profile.click&quot;,&quot;payload&quot;:{&quot;profile_user_id&quot;:5175500,&quot;target&quot;:&quot;EDIT_USER_STATUS&quot;,&quot;user_id&quot;:33378682,&quot;originating_url&quot;:&quot;https://github.com/dafrenchyman/PythonProjectTemplate/blob/master/.pre-commit-config.yaml&quot;}}" data-hydro-click-hmac="1d334639ad0dcb3a49f18760de1a018ab6c43bacba88187fc71464d1fcce0024">
       <div class="d-flex flex-items-center flex-items-stretch">
         <div class="f6 lh-condensed user-status-header d-flex user-status-emoji-only-header circle">
           <div class="user-status-emoji-container flex-shrink-0 mr-2 d-flex flex-items-center flex-justify-center lh-condensed-ultra v-align-bottom">
@@ -446,7 +446,7 @@
       </div>
     </summary>
     <details-dialog class="details-dialog rounded-1 anim-fade-in fast Box Box--overlay" role="dialog" tabindex="-1">
-      <!-- '"` --><!-- </textarea></xmp> --></option></form><form class="position-relative flex-auto js-user-status-form" action="/users/status?circle=0&amp;compact=1&amp;link_mentions=0&amp;truncate=1" accept-charset="UTF-8" method="post"><input type="hidden" name="_method" value="put" /><input type="hidden" name="authenticity_token" value="acrxCNBf64exfnD7Ipk98HdmeyjvFcRI1sWZ7+DhWuO8KLYzDo1E1z7t8fqi9B3RwGtnsMqauTK6I8aCUVjzCQ==" />
+      <!-- '"` --><!-- </textarea></xmp> --></option></form><form class="position-relative flex-auto js-user-status-form" action="/users/status?circle=0&amp;compact=1&amp;link_mentions=0&amp;truncate=1" accept-charset="UTF-8" method="post"><input type="hidden" name="_method" value="put" /><input type="hidden" name="authenticity_token" value="XUfWtiEqnUwM9U9FsU19MwcmcN6rGCj2CboHtBiESaGIpZGN//gyHINmzkQxIF0SsCtsRo6XVYxlXFjZqT3gSw==" />
         <div class="Box-header bg-gray border-bottom p-3">
           <button class="Box-btn-octicon js-toggle-user-status-edit btn-octicon float-right" type="reset" aria-label="Close dialog" data-close-dialog>
             <svg class="octicon octicon-x" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M3.72 3.72a.75.75 0 011.06 0L8 6.94l3.22-3.22a.75.75 0 111.06 1.06L9.06 8l3.22 3.22a.75.75 0 11-1.06 1.06L8 9.06l-3.22 3.22a.75.75 0 01-1.06-1.06L6.94 8 3.72 4.78a.75.75 0 010-1.06z"></path></svg>
@@ -564,17 +564,17 @@
       </li>
       <li class="dropdown-divider" role="none"></li>
         <li>
-          <button type="button" class="btn-link dropdown-item ws-normal js-user-status-expire-button" title="in 30 minutes" value="2020-09-01T19:07:25-07:00">
+          <button type="button" class="btn-link dropdown-item ws-normal js-user-status-expire-button" title="in 30 minutes" value="2020-09-01T19:07:02-07:00">
             in 30 minutes
           </button>
         </li>
         <li>
-          <button type="button" class="btn-link dropdown-item ws-normal js-user-status-expire-button" title="in 1 hour" value="2020-09-01T19:37:25-07:00">
+          <button type="button" class="btn-link dropdown-item ws-normal js-user-status-expire-button" title="in 1 hour" value="2020-09-01T19:37:02-07:00">
             in 1 hour
           </button>
         </li>
         <li>
-          <button type="button" class="btn-link dropdown-item ws-normal js-user-status-expire-button" title="in 4 hours" value="2020-09-01T22:37:25-07:00">
+          <button type="button" class="btn-link dropdown-item ws-normal js-user-status-expire-button" title="in 4 hours" value="2020-09-01T22:37:02-07:00">
             in 4 hours
           </button>
         </li>
@@ -610,17 +610,17 @@
       </div>
       <div role="none" class="dropdown-divider"></div>
 
-    <a role="menuitem" class="dropdown-item" href="/gramadin" data-ga-click="Header, go to profile, text:your profile" data-hydro-click="{&quot;event_type&quot;:&quot;global_header.user_menu_dropdown.click&quot;,&quot;payload&quot;:{&quot;request_url&quot;:&quot;https://github.com/dafrenchyman/PythonProjectTemplate/blob/master/requirements.dev.txt&quot;,&quot;target&quot;:&quot;YOUR_PROFILE&quot;,&quot;originating_url&quot;:&quot;https://github.com/dafrenchyman/PythonProjectTemplate/blob/master/requirements.dev.txt&quot;,&quot;user_id&quot;:33378682}}" data-hydro-click-hmac="2c012167efafb74b84924b238845fe64742fd387d0d6fd36ec5de71216e08192" >Your profile</a>
+    <a role="menuitem" class="dropdown-item" href="/gramadin" data-ga-click="Header, go to profile, text:your profile" data-hydro-click="{&quot;event_type&quot;:&quot;global_header.user_menu_dropdown.click&quot;,&quot;payload&quot;:{&quot;request_url&quot;:&quot;https://github.com/dafrenchyman/PythonProjectTemplate/blob/master/.pre-commit-config.yaml&quot;,&quot;target&quot;:&quot;YOUR_PROFILE&quot;,&quot;originating_url&quot;:&quot;https://github.com/dafrenchyman/PythonProjectTemplate/blob/master/.pre-commit-config.yaml&quot;,&quot;user_id&quot;:33378682}}" data-hydro-click-hmac="96a0ea272eeb736db2f75a0f2960dce57c77f2e0533ea52df28b2597798cad24" >Your profile</a>
 
-    <a role="menuitem" class="dropdown-item" href="/gramadin?tab=repositories" data-ga-click="Header, go to repositories, text:your repositories" data-hydro-click="{&quot;event_type&quot;:&quot;global_header.user_menu_dropdown.click&quot;,&quot;payload&quot;:{&quot;request_url&quot;:&quot;https://github.com/dafrenchyman/PythonProjectTemplate/blob/master/requirements.dev.txt&quot;,&quot;target&quot;:&quot;YOUR_REPOSITORIES&quot;,&quot;originating_url&quot;:&quot;https://github.com/dafrenchyman/PythonProjectTemplate/blob/master/requirements.dev.txt&quot;,&quot;user_id&quot;:33378682}}" data-hydro-click-hmac="4bba51b48ec07088917ec676962c9d925b184ac77a93992b1d197b96286b32a9" >Your repositories</a>
-
-
-
-    <a role="menuitem" class="dropdown-item" href="/gramadin?tab=projects" data-ga-click="Header, go to projects, text:your projects" data-hydro-click="{&quot;event_type&quot;:&quot;global_header.user_menu_dropdown.click&quot;,&quot;payload&quot;:{&quot;request_url&quot;:&quot;https://github.com/dafrenchyman/PythonProjectTemplate/blob/master/requirements.dev.txt&quot;,&quot;target&quot;:&quot;YOUR_PROJECTS&quot;,&quot;originating_url&quot;:&quot;https://github.com/dafrenchyman/PythonProjectTemplate/blob/master/requirements.dev.txt&quot;,&quot;user_id&quot;:33378682}}" data-hydro-click-hmac="5615e590a8f4edc72ccdb8ca2836b80a5060e17fb27bdef50a6ff61528c9b3af" >Your projects</a>
+    <a role="menuitem" class="dropdown-item" href="/gramadin?tab=repositories" data-ga-click="Header, go to repositories, text:your repositories" data-hydro-click="{&quot;event_type&quot;:&quot;global_header.user_menu_dropdown.click&quot;,&quot;payload&quot;:{&quot;request_url&quot;:&quot;https://github.com/dafrenchyman/PythonProjectTemplate/blob/master/.pre-commit-config.yaml&quot;,&quot;target&quot;:&quot;YOUR_REPOSITORIES&quot;,&quot;originating_url&quot;:&quot;https://github.com/dafrenchyman/PythonProjectTemplate/blob/master/.pre-commit-config.yaml&quot;,&quot;user_id&quot;:33378682}}" data-hydro-click-hmac="3dde78ae7aca8f2250cb04ae6b67a893dd58bb0de31ebe0f437847fc35a91bf8" >Your repositories</a>
 
 
-    <a role="menuitem" class="dropdown-item" href="/gramadin?tab=stars" data-ga-click="Header, go to starred repos, text:your stars" data-hydro-click="{&quot;event_type&quot;:&quot;global_header.user_menu_dropdown.click&quot;,&quot;payload&quot;:{&quot;request_url&quot;:&quot;https://github.com/dafrenchyman/PythonProjectTemplate/blob/master/requirements.dev.txt&quot;,&quot;target&quot;:&quot;YOUR_STARS&quot;,&quot;originating_url&quot;:&quot;https://github.com/dafrenchyman/PythonProjectTemplate/blob/master/requirements.dev.txt&quot;,&quot;user_id&quot;:33378682}}" data-hydro-click-hmac="946fd38c700fbbe80144f70a65ad7d94cd30e4f12dad20b9d2530afe087b1fb5" >Your stars</a>
-      <a role="menuitem" class="dropdown-item" href="https://gist.github.com/mine" data-ga-click="Header, your gists, text:your gists" data-hydro-click="{&quot;event_type&quot;:&quot;global_header.user_menu_dropdown.click&quot;,&quot;payload&quot;:{&quot;request_url&quot;:&quot;https://github.com/dafrenchyman/PythonProjectTemplate/blob/master/requirements.dev.txt&quot;,&quot;target&quot;:&quot;YOUR_GISTS&quot;,&quot;originating_url&quot;:&quot;https://github.com/dafrenchyman/PythonProjectTemplate/blob/master/requirements.dev.txt&quot;,&quot;user_id&quot;:33378682}}" data-hydro-click-hmac="600f0f6a0c1d1fc9a263fe6389a89d6428bbf3b7f809219bb22fbf7368bedfad" >Your gists</a>
+
+    <a role="menuitem" class="dropdown-item" href="/gramadin?tab=projects" data-ga-click="Header, go to projects, text:your projects" data-hydro-click="{&quot;event_type&quot;:&quot;global_header.user_menu_dropdown.click&quot;,&quot;payload&quot;:{&quot;request_url&quot;:&quot;https://github.com/dafrenchyman/PythonProjectTemplate/blob/master/.pre-commit-config.yaml&quot;,&quot;target&quot;:&quot;YOUR_PROJECTS&quot;,&quot;originating_url&quot;:&quot;https://github.com/dafrenchyman/PythonProjectTemplate/blob/master/.pre-commit-config.yaml&quot;,&quot;user_id&quot;:33378682}}" data-hydro-click-hmac="77dc442148a229412c4bc36fa6a753ea30fd1274c113eb8c205fcbfd68c80dda" >Your projects</a>
+
+
+    <a role="menuitem" class="dropdown-item" href="/gramadin?tab=stars" data-ga-click="Header, go to starred repos, text:your stars" data-hydro-click="{&quot;event_type&quot;:&quot;global_header.user_menu_dropdown.click&quot;,&quot;payload&quot;:{&quot;request_url&quot;:&quot;https://github.com/dafrenchyman/PythonProjectTemplate/blob/master/.pre-commit-config.yaml&quot;,&quot;target&quot;:&quot;YOUR_STARS&quot;,&quot;originating_url&quot;:&quot;https://github.com/dafrenchyman/PythonProjectTemplate/blob/master/.pre-commit-config.yaml&quot;,&quot;user_id&quot;:33378682}}" data-hydro-click-hmac="50ed9950e3c040b1fee660797f5e57985e2626ad514f5026940ea357896d2aca" >Your stars</a>
+      <a role="menuitem" class="dropdown-item" href="https://gist.github.com/mine" data-ga-click="Header, your gists, text:your gists" data-hydro-click="{&quot;event_type&quot;:&quot;global_header.user_menu_dropdown.click&quot;,&quot;payload&quot;:{&quot;request_url&quot;:&quot;https://github.com/dafrenchyman/PythonProjectTemplate/blob/master/.pre-commit-config.yaml&quot;,&quot;target&quot;:&quot;YOUR_GISTS&quot;,&quot;originating_url&quot;:&quot;https://github.com/dafrenchyman/PythonProjectTemplate/blob/master/.pre-commit-config.yaml&quot;,&quot;user_id&quot;:33378682}}" data-hydro-click-hmac="e186d8b704eec0a8b7064ec62115bc91e939184ef908eb8891c58dac268dde9c" >Your gists</a>
 
 
 
@@ -634,24 +634,24 @@
     class="dropdown-item btn-link"
     role="menuitem"
     data-feature-preview-trigger-url="/users/gramadin/feature_previews"
-    data-feature-preview-close-details="{&quot;event_type&quot;:&quot;feature_preview.clicks.close_modal&quot;,&quot;payload&quot;:{&quot;originating_url&quot;:&quot;https://github.com/dafrenchyman/PythonProjectTemplate/blob/master/requirements.dev.txt&quot;,&quot;user_id&quot;:33378682}}"
-    data-feature-preview-close-hmac="a44c572789d33b3561dafbbbcb7719f2c81fea44b97d3cb0306189cf65cce82e"
-    data-hydro-click="{&quot;event_type&quot;:&quot;feature_preview.clicks.open_modal&quot;,&quot;payload&quot;:{&quot;link_location&quot;:&quot;user_dropdown&quot;,&quot;originating_url&quot;:&quot;https://github.com/dafrenchyman/PythonProjectTemplate/blob/master/requirements.dev.txt&quot;,&quot;user_id&quot;:33378682}}"
-    data-hydro-click-hmac="b58324e0fc1413d9b00545f78d32bd0b5121d97c2434eda6c5d1d854ae27466b"
+    data-feature-preview-close-details="{&quot;event_type&quot;:&quot;feature_preview.clicks.close_modal&quot;,&quot;payload&quot;:{&quot;originating_url&quot;:&quot;https://github.com/dafrenchyman/PythonProjectTemplate/blob/master/.pre-commit-config.yaml&quot;,&quot;user_id&quot;:33378682}}"
+    data-feature-preview-close-hmac="cf055853c8f71fba8651f2ae38033b27f7796fb2659c7fc3f62daaacb21750e1"
+    data-hydro-click="{&quot;event_type&quot;:&quot;feature_preview.clicks.open_modal&quot;,&quot;payload&quot;:{&quot;link_location&quot;:&quot;user_dropdown&quot;,&quot;originating_url&quot;:&quot;https://github.com/dafrenchyman/PythonProjectTemplate/blob/master/.pre-commit-config.yaml&quot;,&quot;user_id&quot;:33378682}}"
+    data-hydro-click-hmac="4e612dbe67724cdf47e68bc986fa2da7de0ab409ef9022d3a33850486fabdd44"
   >
     Feature preview
   </button>
     <span class="feature-preview-indicator js-feature-preview-indicator" hidden></span>
 </div>
 
-    <a role="menuitem" class="dropdown-item" href="https://docs.github.com" data-ga-click="Header, go to help, text:help" data-hydro-click="{&quot;event_type&quot;:&quot;global_header.user_menu_dropdown.click&quot;,&quot;payload&quot;:{&quot;request_url&quot;:&quot;https://github.com/dafrenchyman/PythonProjectTemplate/blob/master/requirements.dev.txt&quot;,&quot;target&quot;:&quot;HELP&quot;,&quot;originating_url&quot;:&quot;https://github.com/dafrenchyman/PythonProjectTemplate/blob/master/requirements.dev.txt&quot;,&quot;user_id&quot;:33378682}}" data-hydro-click-hmac="23290efe742108525f05a8ead4b76dda2c635fbfa18966c83c284aede194799f" >Help</a>
-    <a role="menuitem" class="dropdown-item" href="/settings/profile" data-ga-click="Header, go to settings, icon:settings" data-hydro-click="{&quot;event_type&quot;:&quot;global_header.user_menu_dropdown.click&quot;,&quot;payload&quot;:{&quot;request_url&quot;:&quot;https://github.com/dafrenchyman/PythonProjectTemplate/blob/master/requirements.dev.txt&quot;,&quot;target&quot;:&quot;SETTINGS&quot;,&quot;originating_url&quot;:&quot;https://github.com/dafrenchyman/PythonProjectTemplate/blob/master/requirements.dev.txt&quot;,&quot;user_id&quot;:33378682}}" data-hydro-click-hmac="a54a1967a6f4833a7f45c73d7981c73383a4bf4fc69650382bb89cb99961e2b1" >Settings</a>
-    <!-- '"` --><!-- </textarea></xmp> --></option></form><form class="logout-form" action="/logout" accept-charset="UTF-8" method="post"><input type="hidden" name="authenticity_token" value="yAcRlAZ0D/MKagIbX9/8gYxu0mJiHKUW7X2V6Nb/Bn8oYMl1MkbPMjRUUboOE+39N7fbm/kLHpv1b1klaMy8LA==" />
+    <a role="menuitem" class="dropdown-item" href="https://docs.github.com" data-ga-click="Header, go to help, text:help" data-hydro-click="{&quot;event_type&quot;:&quot;global_header.user_menu_dropdown.click&quot;,&quot;payload&quot;:{&quot;request_url&quot;:&quot;https://github.com/dafrenchyman/PythonProjectTemplate/blob/master/.pre-commit-config.yaml&quot;,&quot;target&quot;:&quot;HELP&quot;,&quot;originating_url&quot;:&quot;https://github.com/dafrenchyman/PythonProjectTemplate/blob/master/.pre-commit-config.yaml&quot;,&quot;user_id&quot;:33378682}}" data-hydro-click-hmac="6741efc51706677f7683f5a31b1eb2e6e8c8d7249a2d21668407d1985d406c65" >Help</a>
+    <a role="menuitem" class="dropdown-item" href="/settings/profile" data-ga-click="Header, go to settings, icon:settings" data-hydro-click="{&quot;event_type&quot;:&quot;global_header.user_menu_dropdown.click&quot;,&quot;payload&quot;:{&quot;request_url&quot;:&quot;https://github.com/dafrenchyman/PythonProjectTemplate/blob/master/.pre-commit-config.yaml&quot;,&quot;target&quot;:&quot;SETTINGS&quot;,&quot;originating_url&quot;:&quot;https://github.com/dafrenchyman/PythonProjectTemplate/blob/master/.pre-commit-config.yaml&quot;,&quot;user_id&quot;:33378682}}" data-hydro-click-hmac="2293fa167d91103c7f81143f7e464a0e27b9a5588d7ce7f10ded363053f283cb" >Settings</a>
+    <!-- '"` --><!-- </textarea></xmp> --></option></form><form class="logout-form" action="/logout" accept-charset="UTF-8" method="post"><input type="hidden" name="authenticity_token" value="KEn/iHoNC9V5OUJN7833aGYMjaB9bmygoNRCbBOv+Z/ILidpTj/LFEcHEey+AeYU3dWEWeZ51y24xo6hrZxDzA==" />
       
-      <button type="submit" class="dropdown-item dropdown-signout" data-ga-click="Header, sign out, icon:logout" data-hydro-click="{&quot;event_type&quot;:&quot;global_header.user_menu_dropdown.click&quot;,&quot;payload&quot;:{&quot;request_url&quot;:&quot;https://github.com/dafrenchyman/PythonProjectTemplate/blob/master/requirements.dev.txt&quot;,&quot;target&quot;:&quot;SIGN_OUT&quot;,&quot;originating_url&quot;:&quot;https://github.com/dafrenchyman/PythonProjectTemplate/blob/master/requirements.dev.txt&quot;,&quot;user_id&quot;:33378682}}" data-hydro-click-hmac="ef19b83f1ae71da7f49569293f1deb13b82a7a5e444071a4759aa151b6b4e789"  role="menuitem">
+      <button type="submit" class="dropdown-item dropdown-signout" data-ga-click="Header, sign out, icon:logout" data-hydro-click="{&quot;event_type&quot;:&quot;global_header.user_menu_dropdown.click&quot;,&quot;payload&quot;:{&quot;request_url&quot;:&quot;https://github.com/dafrenchyman/PythonProjectTemplate/blob/master/.pre-commit-config.yaml&quot;,&quot;target&quot;:&quot;SIGN_OUT&quot;,&quot;originating_url&quot;:&quot;https://github.com/dafrenchyman/PythonProjectTemplate/blob/master/.pre-commit-config.yaml&quot;,&quot;user_id&quot;:33378682}}" data-hydro-click-hmac="e1bfbf68d4fbdd6ced1b219ac34abce13ba5b7cbfbda84547ea50918cf741592"  role="menuitem">
         Sign out
       </button>
-      <input type="text" name="required_field_26e6" hidden="hidden" class="form-control" /><input type="hidden" name="timestamp" value="1599010645349" class="form-control" /><input type="hidden" name="timestamp_secret" value="d97f14da7a8cf59cae32f6ac501e1de69570cc1b37802a366fb356096c397cb0" class="form-control" />
+      <input type="text" name="required_field_cb49" hidden="hidden" class="form-control" /><input type="hidden" name="timestamp" value="1599010622086" class="form-control" /><input type="hidden" name="timestamp_secret" value="6b3ac983ac7ae2002e8a7cf1bf235b4ae9bde0858386470c60a7673f9ccef5c2" class="form-control" />
 </form>  </details-menu>
 </details>
 
@@ -736,10 +736,10 @@
       <ul class="pagehead-actions flex-shrink-0 d-none d-md-inline" style="padding: 2px 0;">
 
   <li>
-        <form data-remote="true" class="d-flex js-social-form js-social-container" action="/notifications/subscribe" accept-charset="UTF-8" method="post"><input type="hidden" name="authenticity_token" value="isooKg+G5iqqEWIiYN8DSNqn2cMsfG5T13zA96TKgWpIPSpj/BBotXV9EUMk1OxhdTDQwWImYgL6lTf5LoRtzQ==" />      <input type="hidden" name="repository_id" value="252789243">
+        <form data-remote="true" class="d-flex js-social-form js-social-container" action="/notifications/subscribe" accept-charset="UTF-8" method="post"><input type="hidden" name="authenticity_token" value="UhhY8RaWvciDMuGcgk6g3JQikCUAcG+IIWD0GHGH6YaQ71q45QAzV1xekv3GRU/1O7WZJ04qY9kMiQMW+8kFIQ==" />      <input type="hidden" name="repository_id" value="252789243">
 
       <details class="details-reset details-overlay select-menu hx_rsm">
-        <summary class="btn btn-sm btn-with-count" data-hydro-click="{&quot;event_type&quot;:&quot;repository.click&quot;,&quot;payload&quot;:{&quot;target&quot;:&quot;WATCH_BUTTON&quot;,&quot;repository_id&quot;:252789243,&quot;originating_url&quot;:&quot;https://github.com/dafrenchyman/PythonProjectTemplate/blob/master/requirements.dev.txt&quot;,&quot;user_id&quot;:33378682}}" data-hydro-click-hmac="52521e65a3836603e9536ec01c71c518a40a1fadd3e03669e89b3bf62b19d130" data-ga-click="Repository, click Watch settings, action:blob#show">          <span data-menu-button>
+        <summary class="btn btn-sm btn-with-count" data-hydro-click="{&quot;event_type&quot;:&quot;repository.click&quot;,&quot;payload&quot;:{&quot;target&quot;:&quot;WATCH_BUTTON&quot;,&quot;repository_id&quot;:252789243,&quot;originating_url&quot;:&quot;https://github.com/dafrenchyman/PythonProjectTemplate/blob/master/.pre-commit-config.yaml&quot;,&quot;user_id&quot;:33378682}}" data-hydro-click-hmac="78d03e2bc48d8ae0b059fe5468ad05392694b9f983abc9c3c740586765002020" data-ga-click="Repository, click Watch settings, action:blob#show">          <span data-menu-button>
               <svg height="16" class="octicon octicon-eye" viewBox="0 0 16 16" version="1.1" width="16" aria-hidden="true"><path fill-rule="evenodd" d="M1.679 7.932c.412-.621 1.242-1.75 2.366-2.717C5.175 4.242 6.527 3.5 8 3.5c1.473 0 2.824.742 3.955 1.715 1.124.967 1.954 2.096 2.366 2.717a.119.119 0 010 .136c-.412.621-1.242 1.75-2.366 2.717C10.825 11.758 9.473 12.5 8 12.5c-1.473 0-2.824-.742-3.955-1.715C2.92 9.818 2.09 8.69 1.679 8.068a.119.119 0 010-.136zM8 2c-1.981 0-3.67.992-4.933 2.078C1.797 5.169.88 6.423.43 7.1a1.619 1.619 0 000 1.798c.45.678 1.367 1.932 2.637 3.024C4.329 13.008 6.019 14 8 14c1.981 0 3.67-.992 4.933-2.078 1.27-1.091 2.187-2.345 2.637-3.023a1.619 1.619 0 000-1.798c-.45-.678-1.367-1.932-2.637-3.023C11.671 2.992 9.981 2 8 2zm0 8a2 2 0 100-4 2 2 0 000 4z"></path></svg>
               Watch
           </span>
@@ -811,18 +811,18 @@
 
   <li>
       <div class="js-toggler-container js-social-container starring-container ">
-    <form class="starred js-social-form" action="/dafrenchyman/PythonProjectTemplate/unstar" accept-charset="UTF-8" method="post"><input type="hidden" name="authenticity_token" value="iHdMM19RjFn1ag2vyznxDfLBFaJuyftmzyJcM1f5J0wmk794O3JZQDR6rIL/W/N56aLV4bmK8gFrnxA7YHPetg==" />
+    <form class="starred js-social-form" action="/dafrenchyman/PythonProjectTemplate/unstar" accept-charset="UTF-8" method="post"><input type="hidden" name="authenticity_token" value="En2tuZx3AnSdS67uBTQpLGJc5EVQRl1PaHN1MPZwinC8mV7y+FTXbVxbD8MxVitYeT8kBocFVCjMzjk4wfpzig==" />
       <input type="hidden" name="context" value="repository"></input>
-      <button type="submit" class="btn btn-sm btn-with-count  js-toggler-target" aria-label="Unstar this repository" title="Unstar dafrenchyman/PythonProjectTemplate" data-hydro-click="{&quot;event_type&quot;:&quot;repository.click&quot;,&quot;payload&quot;:{&quot;target&quot;:&quot;UNSTAR_BUTTON&quot;,&quot;repository_id&quot;:252789243,&quot;originating_url&quot;:&quot;https://github.com/dafrenchyman/PythonProjectTemplate/blob/master/requirements.dev.txt&quot;,&quot;user_id&quot;:33378682}}" data-hydro-click-hmac="0146d0d3eb6f20a6b7559cae18153bcdfe88581ed9ba64538419efd6572760d8" data-ga-click="Repository, click unstar button, action:blob#show; text:Unstar">        <svg height="16" class="octicon octicon-star-fill" viewBox="0 0 16 16" version="1.1" width="16" aria-hidden="true"><path fill-rule="evenodd" d="M8 .25a.75.75 0 01.673.418l1.882 3.815 4.21.612a.75.75 0 01.416 1.279l-3.046 2.97.719 4.192a.75.75 0 01-1.088.791L8 12.347l-3.766 1.98a.75.75 0 01-1.088-.79l.72-4.194L.818 6.374a.75.75 0 01.416-1.28l4.21-.611L7.327.668A.75.75 0 018 .25z"></path></svg>
+      <button type="submit" class="btn btn-sm btn-with-count  js-toggler-target" aria-label="Unstar this repository" title="Unstar dafrenchyman/PythonProjectTemplate" data-hydro-click="{&quot;event_type&quot;:&quot;repository.click&quot;,&quot;payload&quot;:{&quot;target&quot;:&quot;UNSTAR_BUTTON&quot;,&quot;repository_id&quot;:252789243,&quot;originating_url&quot;:&quot;https://github.com/dafrenchyman/PythonProjectTemplate/blob/master/.pre-commit-config.yaml&quot;,&quot;user_id&quot;:33378682}}" data-hydro-click-hmac="ceb18f44f765b8fe6a4c465bf8ca6a320a5c91a7acef3e0c69bfcb815cf3d7bf" data-ga-click="Repository, click unstar button, action:blob#show; text:Unstar">        <svg height="16" class="octicon octicon-star-fill" viewBox="0 0 16 16" version="1.1" width="16" aria-hidden="true"><path fill-rule="evenodd" d="M8 .25a.75.75 0 01.673.418l1.882 3.815 4.21.612a.75.75 0 01.416 1.279l-3.046 2.97.719 4.192a.75.75 0 01-1.088.791L8 12.347l-3.766 1.98a.75.75 0 01-1.088-.79l.72-4.194L.818 6.374a.75.75 0 01.416-1.28l4.21-.611L7.327.668A.75.75 0 018 .25z"></path></svg>
         Unstar
 </button>        <a class="social-count js-social-count" href="/dafrenchyman/PythonProjectTemplate/stargazers"
            aria-label="0 users starred this repository">
            0
         </a>
 </form>
-    <form class="unstarred js-social-form" action="/dafrenchyman/PythonProjectTemplate/star" accept-charset="UTF-8" method="post"><input type="hidden" name="authenticity_token" value="n9P/tpF4nxh6e/EOMMumzy+zRygmg8rDj2Jg0yl4ZkB+ETOtlzduyG0jszPJC+ADyZ1Ed3bOzlG42tKNTCBRug==" />
+    <form class="unstarred js-social-form" action="/dafrenchyman/PythonProjectTemplate/star" accept-charset="UTF-8" method="post"><input type="hidden" name="authenticity_token" value="TFJIpe5XI7uMQnTQ+SSt8s2TK8iyOp4qH1YTxd0fROqtkIS+6BjSa5saNu0A5Os+K70ol+J3mrgo7qGbuEdzEA==" />
       <input type="hidden" name="context" value="repository"></input>
-      <button type="submit" class="btn btn-sm btn-with-count  js-toggler-target" aria-label="Unstar this repository" title="Star dafrenchyman/PythonProjectTemplate" data-hydro-click="{&quot;event_type&quot;:&quot;repository.click&quot;,&quot;payload&quot;:{&quot;target&quot;:&quot;STAR_BUTTON&quot;,&quot;repository_id&quot;:252789243,&quot;originating_url&quot;:&quot;https://github.com/dafrenchyman/PythonProjectTemplate/blob/master/requirements.dev.txt&quot;,&quot;user_id&quot;:33378682}}" data-hydro-click-hmac="1278a9dbf1745a8f0a3f6a4c47539af0b7020fd92aa842c46f496a0bc224ad11" data-ga-click="Repository, click star button, action:blob#show; text:Star">        <svg height="16" class="octicon octicon-star" viewBox="0 0 16 16" version="1.1" width="16" aria-hidden="true"><path fill-rule="evenodd" d="M8 .25a.75.75 0 01.673.418l1.882 3.815 4.21.612a.75.75 0 01.416 1.279l-3.046 2.97.719 4.192a.75.75 0 01-1.088.791L8 12.347l-3.766 1.98a.75.75 0 01-1.088-.79l.72-4.194L.818 6.374a.75.75 0 01.416-1.28l4.21-.611L7.327.668A.75.75 0 018 .25zm0 2.445L6.615 5.5a.75.75 0 01-.564.41l-3.097.45 2.24 2.184a.75.75 0 01.216.664l-.528 3.084 2.769-1.456a.75.75 0 01.698 0l2.77 1.456-.53-3.084a.75.75 0 01.216-.664l2.24-2.183-3.096-.45a.75.75 0 01-.564-.41L8 2.694v.001z"></path></svg>
+      <button type="submit" class="btn btn-sm btn-with-count  js-toggler-target" aria-label="Unstar this repository" title="Star dafrenchyman/PythonProjectTemplate" data-hydro-click="{&quot;event_type&quot;:&quot;repository.click&quot;,&quot;payload&quot;:{&quot;target&quot;:&quot;STAR_BUTTON&quot;,&quot;repository_id&quot;:252789243,&quot;originating_url&quot;:&quot;https://github.com/dafrenchyman/PythonProjectTemplate/blob/master/.pre-commit-config.yaml&quot;,&quot;user_id&quot;:33378682}}" data-hydro-click-hmac="9bd303971e717500be9a5e7392bc471c996bfe6745893ad1088b855919026d5f" data-ga-click="Repository, click star button, action:blob#show; text:Star">        <svg height="16" class="octicon octicon-star" viewBox="0 0 16 16" version="1.1" width="16" aria-hidden="true"><path fill-rule="evenodd" d="M8 .25a.75.75 0 01.673.418l1.882 3.815 4.21.612a.75.75 0 01.416 1.279l-3.046 2.97.719 4.192a.75.75 0 01-1.088.791L8 12.347l-3.766 1.98a.75.75 0 01-1.088-.79l.72-4.194L.818 6.374a.75.75 0 01.416-1.28l4.21-.611L7.327.668A.75.75 0 018 .25zm0 2.445L6.615 5.5a.75.75 0 01-.564.41l-3.097.45 2.24 2.184a.75.75 0 01.216.664l-.528 3.084 2.769-1.456a.75.75 0 01.698 0l2.77 1.456-.53-3.084a.75.75 0 01.216-.664l2.24-2.183-3.096-.45a.75.75 0 01-.564-.41L8 2.694v.001z"></path></svg>
         Star
 </button>        <a class="social-count js-social-count" href="/dafrenchyman/PythonProjectTemplate/stargazers"
            aria-label="0 users starred this repository">
@@ -833,8 +833,8 @@
   </li>
 
   <li>
-          <!-- '"` --><!-- </textarea></xmp> --></option></form><form class="btn-with-count" action="/dafrenchyman/PythonProjectTemplate/fork" accept-charset="UTF-8" method="post"><input type="hidden" name="authenticity_token" value="7v8Fd0kPR3wvCOHUPqcJWmVdHeRMQzDGCxwaOymWBsvefmseIpwyqLfEikwQjKeytwvueXnwH82IGxip4M5n4w==" />
-            <button class="btn btn-sm btn-with-count" data-hydro-click="{&quot;event_type&quot;:&quot;repository.click&quot;,&quot;payload&quot;:{&quot;target&quot;:&quot;FORK_BUTTON&quot;,&quot;repository_id&quot;:252789243,&quot;originating_url&quot;:&quot;https://github.com/dafrenchyman/PythonProjectTemplate/blob/master/requirements.dev.txt&quot;,&quot;user_id&quot;:33378682}}" data-hydro-click-hmac="bb5776397feea5866ae514667b0ee351feca144a040da1a9752ef427b74f2479" data-ga-click="Repository, show fork modal, action:blob#show; text:Fork" type="submit" title="Fork your own copy of dafrenchyman/PythonProjectTemplate to your account" aria-label="Fork your own copy of dafrenchyman/PythonProjectTemplate to your account">              <svg class="octicon octicon-repo-forked" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M5 3.25a.75.75 0 11-1.5 0 .75.75 0 011.5 0zm0 2.122a2.25 2.25 0 10-1.5 0v.878A2.25 2.25 0 005.75 8.5h1.5v2.128a2.251 2.251 0 101.5 0V8.5h1.5a2.25 2.25 0 002.25-2.25v-.878a2.25 2.25 0 10-1.5 0v.878a.75.75 0 01-.75.75h-4.5A.75.75 0 015 6.25v-.878zm3.75 7.378a.75.75 0 11-1.5 0 .75.75 0 011.5 0zm3-8.75a.75.75 0 100-1.5.75.75 0 000 1.5z"></path></svg>
+          <!-- '"` --><!-- </textarea></xmp> --></option></form><form class="btn-with-count" action="/dafrenchyman/PythonProjectTemplate/fork" accept-charset="UTF-8" method="post"><input type="hidden" name="authenticity_token" value="AOr0rQLeRYXbJu4Bdx7hE/WL0fjURMZ76DLijOklcmowa5rEaU0wUUPqhZlZNU/7J90iZeH36XBrNeAeIH0TQg==" />
+            <button class="btn btn-sm btn-with-count" data-hydro-click="{&quot;event_type&quot;:&quot;repository.click&quot;,&quot;payload&quot;:{&quot;target&quot;:&quot;FORK_BUTTON&quot;,&quot;repository_id&quot;:252789243,&quot;originating_url&quot;:&quot;https://github.com/dafrenchyman/PythonProjectTemplate/blob/master/.pre-commit-config.yaml&quot;,&quot;user_id&quot;:33378682}}" data-hydro-click-hmac="26a54a3f0d56ebebb58ddc5a7a3c297e0fda2bd680869c2faff5405c5559b1dd" data-ga-click="Repository, show fork modal, action:blob#show; text:Fork" type="submit" title="Fork your own copy of dafrenchyman/PythonProjectTemplate to your account" aria-label="Fork your own copy of dafrenchyman/PythonProjectTemplate to your account">              <svg class="octicon octicon-repo-forked" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M5 3.25a.75.75 0 11-1.5 0 .75.75 0 011.5 0zm0 2.122a2.25 2.25 0 10-1.5 0v.878A2.25 2.25 0 005.75 8.5h1.5v2.128a2.251 2.251 0 101.5 0V8.5h1.5a2.25 2.25 0 002.25-2.25v-.878a2.25 2.25 0 10-1.5 0v.878a.75.75 0 01-.75.75h-4.5A.75.75 0 015 6.25v-.878zm3.75 7.378a.75.75 0 11-1.5 0 .75.75 0 011.5 0zm3-8.75a.75.75 0 100-1.5.75.75 0 000 1.5z"></path></svg>
               Fork
 </button></form>
     <a href="/dafrenchyman/PythonProjectTemplate/network/members" class="social-count"
@@ -956,9 +956,9 @@
   
 
 
-    <a class="d-none js-permalink-shortcut" data-hotkey="y" href="/dafrenchyman/PythonProjectTemplate/blob/e0ce3cc46663b77d17d4de54b0dcf8e5e43e60aa/requirements.dev.txt">Permalink</a>
+    <a class="d-none js-permalink-shortcut" data-hotkey="y" href="/dafrenchyman/PythonProjectTemplate/blob/e0ce3cc46663b77d17d4de54b0dcf8e5e43e60aa/.pre-commit-config.yaml">Permalink</a>
 
-    <!-- blob contrib key: blob_contributors:v22:8e19d30a67b32c30685f207bb02ea106 -->
+    <!-- blob contrib key: blob_contributors:v22:dee7d77db059f7534a74c282fd2a58a9 -->
     
 
     <div class="d-flex flex-items-start flex-shrink-0 pb-3 flex-wrap flex-md-nowrap flex-justify-between flex-md-justify-start">
@@ -973,7 +973,7 @@
       <span class="dropdown-caret"></span>
     </summary>
 
-    <details-menu class="SelectMenu SelectMenu--hasFilter" src="/dafrenchyman/PythonProjectTemplate/refs/master/requirements.dev.txt?source_action=show&amp;source_controller=blob" preload>
+    <details-menu class="SelectMenu SelectMenu--hasFilter" src="/dafrenchyman/PythonProjectTemplate/refs/master/.pre-commit-config.yaml?source_action=show&amp;source_controller=blob" preload>
       <div class="SelectMenu-modal">
         <include-fragment class="SelectMenu-loading" aria-label="Menu is loading">
           <svg class="octicon octicon-octoface anim-pulse" height="32" viewBox="0 0 24 24" version="1.1" width="32" aria-hidden="true"><path d="M7.75 11c-.69 0-1.25.56-1.25 1.25v1.5a1.25 1.25 0 102.5 0v-1.5C9 11.56 8.44 11 7.75 11zm1.27 4.5a.469.469 0 01.48-.5h5a.47.47 0 01.48.5c-.116 1.316-.759 2.5-2.98 2.5s-2.864-1.184-2.98-2.5zm7.23-4.5c-.69 0-1.25.56-1.25 1.25v1.5a1.25 1.25 0 102.5 0v-1.5c0-.69-.56-1.25-1.25-1.25z"></path><path fill-rule="evenodd" d="M21.255 3.82a1.725 1.725 0 00-2.141-1.195c-.557.16-1.406.44-2.264.866-.78.386-1.647.93-2.293 1.677A18.442 18.442 0 0012 5c-.93 0-1.784.059-2.569.17-.645-.74-1.505-1.28-2.28-1.664a13.876 13.876 0 00-2.265-.866 1.725 1.725 0 00-2.141 1.196 23.645 23.645 0 00-.69 3.292c-.125.97-.191 2.07-.066 3.112C1.254 11.882 1 13.734 1 15.527 1 19.915 3.13 23 12 23c8.87 0 11-3.053 11-7.473 0-1.794-.255-3.647-.99-5.29.127-1.046.06-2.15-.066-3.125a23.652 23.652 0 00-.689-3.292zM20.5 14c.5 3.5-1.5 6.5-8.5 6.5s-9-3-8.5-6.5c.583-4 3-6 8.5-6s7.928 2 8.5 6z"></path></svg>
@@ -985,7 +985,7 @@
 </div>
 
       <h2 id="blob-path" class="breadcrumb flex-auto min-width-0 text-normal mx-0 mx-md-3 width-full width-md-auto flex-order-1 flex-md-order-none mt-3 mt-md-0">
-        <span class="js-repo-root text-bold"><span class="js-path-segment d-inline-block wb-break-all"><a data-pjax="true" href="/dafrenchyman/PythonProjectTemplate"><span>PythonProjectTemplate</span></a></span></span><span class="separator">/</span><strong class="final-path">requirements.dev.txt</strong>
+        <span class="js-repo-root text-bold"><span class="js-path-segment d-inline-block wb-break-all"><a data-pjax="true" href="/dafrenchyman/PythonProjectTemplate"><span>PythonProjectTemplate</span></a></span></span><span class="separator">/</span><strong class="final-path">.pre-commit-config.yaml</strong>
       </h2>
       <a href="/dafrenchyman/PythonProjectTemplate/find/master"
             class="js-pjax-capture-input btn mr-2 d-none d-md-block"
@@ -1002,7 +1002,7 @@
 
 </summary>            <ul class="dropdown-menu dropdown-menu-sw">
             <li class="d-block d-md-none">
-              <a class="dropdown-item d-flex flex-items-baseline" data-hydro-click="{&quot;event_type&quot;:&quot;repository.click&quot;,&quot;payload&quot;:{&quot;target&quot;:&quot;FIND_FILE_BUTTON&quot;,&quot;repository_id&quot;:252789243,&quot;originating_url&quot;:&quot;https://github.com/dafrenchyman/PythonProjectTemplate/blob/master/requirements.dev.txt&quot;,&quot;user_id&quot;:33378682}}" data-hydro-click-hmac="d372d6fdf1336ade9cc57d25a703f6d2433337dadb179654956a19e432f56db8" data-ga-click="Repository, find file, location:repo overview" data-hotkey="t" data-pjax="true" href="/dafrenchyman/PythonProjectTemplate/find/master">
+              <a class="dropdown-item d-flex flex-items-baseline" data-hydro-click="{&quot;event_type&quot;:&quot;repository.click&quot;,&quot;payload&quot;:{&quot;target&quot;:&quot;FIND_FILE_BUTTON&quot;,&quot;repository_id&quot;:252789243,&quot;originating_url&quot;:&quot;https://github.com/dafrenchyman/PythonProjectTemplate/blob/master/.pre-commit-config.yaml&quot;,&quot;user_id&quot;:33378682}}" data-hydro-click-hmac="71159d57268e52a4364a2a5eda195801aeabceab11f11c5fdb5fc6b792487bbf" data-ga-click="Repository, find file, location:repo overview" data-hotkey="t" data-pjax="true" href="/dafrenchyman/PythonProjectTemplate/find/master">
                 <span class="flex-auto">Go to file</span>
                 <span class="text-small text-gray" aria-hidden="true">T</span>
 </a>            </li>
@@ -1016,7 +1016,7 @@
             </li>
             <li class="dropdown-divider" role="none"></li>
             <li>
-              <clipboard-copy value="requirements.dev.txt" class="dropdown-item cursor-pointer" data-toggle-for="blob-more-options-details">
+              <clipboard-copy value=".pre-commit-config.yaml" class="dropdown-item cursor-pointer" data-toggle-for="blob-more-options-details">
                 Copy path
               </clipboard-copy>
             </li>
@@ -1059,7 +1059,7 @@ Updated black to the new version and black takes care of the pre-commit hook dir
             <span itemprop="dateModified"><relative-time datetime="2020-08-29T21:01:06Z" class="no-wrap">Aug 29, 2020</relative-time></span>
           </span>
 
-          <a data-pjax href="/dafrenchyman/PythonProjectTemplate/commits/master/requirements.dev.txt" class="ml-3 no-wrap link-gray-dark no-underline">
+          <a data-pjax href="/dafrenchyman/PythonProjectTemplate/commits/e0ce3cc46663b77d17d4de54b0dcf8e5e43e60aa/.pre-commit-config.yaml" class="ml-3 no-wrap link-gray-dark no-underline">
             <svg text="gray" height="16" class="octicon octicon-history text-gray" viewBox="0 0 16 16" version="1.1" width="16" aria-hidden="true"><path fill-rule="evenodd" d="M1.643 3.143L.427 1.927A.25.25 0 000 2.104V5.75c0 .138.112.25.25.25h3.646a.25.25 0 00.177-.427L2.715 4.215a6.5 6.5 0 11-1.18 4.458.75.75 0 10-1.493.154 8.001 8.001 0 101.6-5.684zM7.75 4a.75.75 0 01.75.75v2.992l2.028.812a.75.75 0 01-.557 1.392l-2.5-1A.75.75 0 017 8.25v-3.5A.75.75 0 017.75 4z"></path></svg>
             <span class="d-none d-sm-inline">
               <strong>History</strong>
@@ -1082,7 +1082,7 @@ Updated black to the new version and black takes care of the pre-commit hook dir
       <details-dialog
         class="Box Box--overlay d-flex flex-column anim-fade-in fast"
         aria-label="Users who have contributed to this file"
-        src="/dafrenchyman/PythonProjectTemplate/contributors-list/master/requirements.dev.txt" preload>
+        src="/dafrenchyman/PythonProjectTemplate/contributors-list/e0ce3cc46663b77d17d4de54b0dcf8e5e43e60aa/.pre-commit-config.yaml" preload>
         <div class="Box-header">
           <button class="Box-btn-octicon btn-octicon float-right" type="button" aria-label="Close dialog" data-close-dialog>
             <svg class="octicon octicon-x" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M3.72 3.72a.75.75 0 011.06 0L8 6.94l3.22-3.22a.75.75 0 111.06 1.06L9.06 8l3.22 3.22a.75.75 0 11-1.06 1.06L8 9.06l-3.22 3.22a.75.75 0 01-1.06-1.06L6.94 8 3.72 4.78a.75.75 0 010-1.06z"></path></svg>
@@ -1108,34 +1108,34 @@ Updated black to the new version and black takes care of the pre-commit hook dir
 <div class="Box-header py-2 d-flex flex-column flex-shrink-0 flex-md-row flex-md-items-center">
   <div class="text-mono f6 flex-auto pr-3 flex-order-2 flex-md-order-1 mt-2 mt-md-0">
 
-      90 lines (89 sloc)
+      31 lines (31 sloc)
       <span class="file-info-divider"></span>
-    4.12 KB
+    841 Bytes
   </div>
 
   <div class="d-flex py-1 py-md-0 flex-auto flex-order-1 flex-md-order-2 flex-sm-grow-0 flex-justify-between">
 
     <div class="BtnGroup">
-      <a href="/dafrenchyman/PythonProjectTemplate/raw/master/requirements.dev.txt" id="raw-url" role="button" class="btn btn-sm BtnGroup-item ">Raw</a>
-        <a href="/dafrenchyman/PythonProjectTemplate/blame/master/requirements.dev.txt" data-hotkey="b" role="button" class="btn js-update-url-with-hash btn-sm BtnGroup-item ">Blame</a>
+      <a href="/dafrenchyman/PythonProjectTemplate/raw/master/.pre-commit-config.yaml" id="raw-url" role="button" class="btn btn-sm BtnGroup-item ">Raw</a>
+        <a href="/dafrenchyman/PythonProjectTemplate/blame/master/.pre-commit-config.yaml" data-hotkey="b" role="button" class="btn js-update-url-with-hash btn-sm BtnGroup-item ">Blame</a>
     </div>
 
     <div>
           <a class="btn-octicon tooltipped tooltipped-nw js-remove-unless-platform"
              data-platforms="windows,mac"
-             href="x-github-client://openRepo/https://github.com/dafrenchyman/PythonProjectTemplate?branch=master&amp;filepath=requirements.dev.txt"
+             href="x-github-client://openRepo/https://github.com/dafrenchyman/PythonProjectTemplate?branch=master&amp;filepath=.pre-commit-config.yaml"
              aria-label="Open this file in GitHub Desktop"
              data-ga-click="Repository, open with desktop">
               <svg class="octicon octicon-device-desktop" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M1.75 2.5h12.5a.25.25 0 01.25.25v7.5a.25.25 0 01-.25.25H1.75a.25.25 0 01-.25-.25v-7.5a.25.25 0 01.25-.25zM14.25 1H1.75A1.75 1.75 0 000 2.75v7.5C0 11.216.784 12 1.75 12h3.727c-.1 1.041-.52 1.872-1.292 2.757A.75.75 0 004.75 16h6.5a.75.75 0 00.565-1.243c-.772-.885-1.193-1.716-1.292-2.757h3.727A1.75 1.75 0 0016 10.25v-7.5A1.75 1.75 0 0014.25 1zM9.018 12H6.982a5.72 5.72 0 01-.765 2.5h3.566a5.72 5.72 0 01-.765-2.5z"></path></svg>
           </a>
 
-          <!-- '"` --><!-- </textarea></xmp> --></option></form><form class="inline-form js-update-url-with-hash" action="/dafrenchyman/PythonProjectTemplate/edit/master/requirements.dev.txt" accept-charset="UTF-8" method="post"><input type="hidden" name="authenticity_token" value="sGb7zUnTPOJLeyI183zX5tw2/QXV6XiyYh5Q3v/XsUyKC/j6N9CRq4BVtKBW8qLoQlTtN6fXfqlW27khRQ97+A==" />
+          <!-- '"` --><!-- </textarea></xmp> --></option></form><form class="inline-form js-update-url-with-hash" action="/dafrenchyman/PythonProjectTemplate/edit/master/.pre-commit-config.yaml" accept-charset="UTF-8" method="post"><input type="hidden" name="authenticity_token" value="SoyhhOYVBku2u99QRI/x616ft5whpW11yhniNpP3YtHVpvg1fCA/jjrdg0ZHFvjkRLoT+ym6Tcd23Uz5Gm0MbA==" />
             <button class="btn-octicon tooltipped tooltipped-nw" type="submit"
               aria-label="Fork this project and edit the file" data-hotkey="e" data-disable-with>
               <svg class="octicon octicon-pencil" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M11.013 1.427a1.75 1.75 0 012.474 0l1.086 1.086a1.75 1.75 0 010 2.474l-8.61 8.61c-.21.21-.47.364-.756.445l-3.251.93a.75.75 0 01-.927-.928l.929-3.25a1.75 1.75 0 01.445-.758l8.61-8.61zm1.414 1.06a.25.25 0 00-.354 0L10.811 3.75l1.439 1.44 1.263-1.263a.25.25 0 000-.354l-1.086-1.086zM11.189 6.25L9.75 4.81l-6.286 6.287a.25.25 0 00-.064.108l-.558 1.953 1.953-.558a.249.249 0 00.108-.064l6.286-6.286z"></path></svg>
             </button>
 </form>
-          <!-- '"` --><!-- </textarea></xmp> --></option></form><form class="inline-form" action="/dafrenchyman/PythonProjectTemplate/delete/master/requirements.dev.txt" accept-charset="UTF-8" method="post"><input type="hidden" name="authenticity_token" value="cndS222Jax3//ixQj9ZC0HLWNgS7kG4YSdPZnuCCjvrWj+GbLvyalRvgLgBes6fMwoJXJHpxKuFJYjRJz1ZxDQ==" />
+          <!-- '"` --><!-- </textarea></xmp> --></option></form><form class="inline-form" action="/dafrenchyman/PythonProjectTemplate/delete/master/.pre-commit-config.yaml" accept-charset="UTF-8" method="post"><input type="hidden" name="authenticity_token" value="sZ/zfb9BssZyAp5qQYnKez5XEmVKYTM4qp0JizdlZzG0gfJlfnUQwMsQsa0WrqBjppVnPidSq/bhHoLr3+dAjw==" />
             <button class="btn-octicon btn-octicon-danger tooltipped tooltipped-nw" type="submit"
               aria-label="Fork this project and delete the file" data-disable-with>
               <svg class="octicon octicon-trashcan" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M6.5 1.75a.25.25 0 01.25-.25h2.5a.25.25 0 01.25.25V3h-3V1.75zm4.5 0V3h2.25a.75.75 0 010 1.5H2.75a.75.75 0 010-1.5H5V1.75C5 .784 5.784 0 6.75 0h2.5C10.216 0 11 .784 11 1.75zM4.496 6.675a.75.75 0 10-1.492.15l.66 6.6A1.75 1.75 0 005.405 15h5.19c.9 0 1.652-.681 1.741-1.576l.66-6.6a.75.75 0 00-1.492-.149l-.66 6.6a.25.25 0 01-.249.225h-5.19a.25.25 0 01-.249-.225l-.66-6.6z"></path></svg>
@@ -1148,369 +1148,132 @@ Updated black to the new version and black takes care of the pre-commit hook dir
 
       
 
-  <div itemprop="text" class="Box-body p-0 blob-wrapper data type-text  gist-border-0">
+  <div itemprop="text" class="Box-body p-0 blob-wrapper data type-yaml  gist-border-0">
       
 <table class="highlight tab-size js-file-line-container" data-tab-size="8" data-paste-markdown-skip>
       <tr>
         <td id="L1" class="blob-num js-line-number" data-line-number="1"></td>
-        <td id="LC1" class="blob-code blob-code-inner js-file-line">#</td>
+        <td id="LC1" class="blob-code blob-code-inner js-file-line"><span class="pl-ent">repos</span>:</td>
       </tr>
       <tr>
         <td id="L2" class="blob-num js-line-number" data-line-number="2"></td>
-        <td id="LC2" class="blob-code blob-code-inner js-file-line"># This file is autogenerated by pip-compile</td>
+        <td id="LC2" class="blob-code blob-code-inner js-file-line">  - <span class="pl-ent">repo</span>: <span class="pl-s">https://github.com/psf/black</span></td>
       </tr>
       <tr>
         <td id="L3" class="blob-num js-line-number" data-line-number="3"></td>
-        <td id="LC3" class="blob-code blob-code-inner js-file-line"># To update, run:</td>
+        <td id="LC3" class="blob-code blob-code-inner js-file-line">    <span class="pl-ent">rev</span>: <span class="pl-s">20.8b1</span></td>
       </tr>
       <tr>
         <td id="L4" class="blob-num js-line-number" data-line-number="4"></td>
-        <td id="LC4" class="blob-code blob-code-inner js-file-line">#</td>
+        <td id="LC4" class="blob-code blob-code-inner js-file-line">    <span class="pl-ent">hooks</span>:</td>
       </tr>
       <tr>
         <td id="L5" class="blob-num js-line-number" data-line-number="5"></td>
-        <td id="LC5" class="blob-code blob-code-inner js-file-line">#    pip-compile --output-file=requirements.dev.txt requirements.dev.in</td>
+        <td id="LC5" class="blob-code blob-code-inner js-file-line">      - <span class="pl-ent">id</span>: <span class="pl-s">black</span></td>
       </tr>
       <tr>
         <td id="L6" class="blob-num js-line-number" data-line-number="6"></td>
-        <td id="LC6" class="blob-code blob-code-inner js-file-line">#</td>
+        <td id="LC6" class="blob-code blob-code-inner js-file-line">        <span class="pl-ent">language_version</span>: <span class="pl-s">python3</span></td>
       </tr>
       <tr>
         <td id="L7" class="blob-num js-line-number" data-line-number="7"></td>
-        <td id="LC7" class="blob-code blob-code-inner js-file-line">appdirs==1.4.4            # via black, virtualenv</td>
+        <td id="LC7" class="blob-code blob-code-inner js-file-line">  - <span class="pl-ent">repo</span>: <span class="pl-s">https://github.com/asottile/seed-isort-config</span></td>
       </tr>
       <tr>
         <td id="L8" class="blob-num js-line-number" data-line-number="8"></td>
-        <td id="LC8" class="blob-code blob-code-inner js-file-line">argon2-cffi==20.1.0       # via notebook</td>
+        <td id="LC8" class="blob-code blob-code-inner js-file-line">    <span class="pl-ent">rev</span>: <span class="pl-s">v2.1.0</span></td>
       </tr>
       <tr>
         <td id="L9" class="blob-num js-line-number" data-line-number="9"></td>
-        <td id="LC9" class="blob-code blob-code-inner js-file-line">attrs==20.1.0             # via jsonschema</td>
+        <td id="LC9" class="blob-code blob-code-inner js-file-line">    <span class="pl-ent">hooks</span>:</td>
       </tr>
       <tr>
         <td id="L10" class="blob-num js-line-number" data-line-number="10"></td>
-        <td id="LC10" class="blob-code blob-code-inner js-file-line">backcall==0.2.0           # via ipython</td>
+        <td id="LC10" class="blob-code blob-code-inner js-file-line">      - <span class="pl-ent">id</span>: <span class="pl-s">seed-isort-config</span></td>
       </tr>
       <tr>
         <td id="L11" class="blob-num js-line-number" data-line-number="11"></td>
-        <td id="LC11" class="blob-code blob-code-inner js-file-line">black==20.8b1             # via -r requirements.dev.in</td>
+        <td id="LC11" class="blob-code blob-code-inner js-file-line">  - <span class="pl-ent">repo</span>: <span class="pl-s">https://github.com/timothycrosley/isort</span></td>
       </tr>
       <tr>
         <td id="L12" class="blob-num js-line-number" data-line-number="12"></td>
-        <td id="LC12" class="blob-code blob-code-inner js-file-line">bleach==3.1.5             # via nbconvert</td>
+        <td id="LC12" class="blob-code blob-code-inner js-file-line">    <span class="pl-ent">rev</span>: <span class="pl-s">4.3.21</span></td>
       </tr>
       <tr>
         <td id="L13" class="blob-num js-line-number" data-line-number="13"></td>
-        <td id="LC13" class="blob-code blob-code-inner js-file-line">certifi==2020.6.20        # via requests</td>
+        <td id="LC13" class="blob-code blob-code-inner js-file-line">    <span class="pl-ent">hooks</span>:</td>
       </tr>
       <tr>
         <td id="L14" class="blob-num js-line-number" data-line-number="14"></td>
-        <td id="LC14" class="blob-code blob-code-inner js-file-line">cffi==1.14.2              # via argon2-cffi</td>
+        <td id="LC14" class="blob-code blob-code-inner js-file-line">      - <span class="pl-ent">id</span>: <span class="pl-s">isort</span></td>
       </tr>
       <tr>
         <td id="L15" class="blob-num js-line-number" data-line-number="15"></td>
-        <td id="LC15" class="blob-code blob-code-inner js-file-line">cfgv==3.2.0               # via pre-commit</td>
+        <td id="LC15" class="blob-code blob-code-inner js-file-line">  - <span class="pl-ent">repo</span>: <span class="pl-s">https://github.com/Lucas-C/pre-commit-hooks-safety</span></td>
       </tr>
       <tr>
         <td id="L16" class="blob-num js-line-number" data-line-number="16"></td>
-        <td id="LC16" class="blob-code blob-code-inner js-file-line">chardet==3.0.4            # via requests</td>
+        <td id="LC16" class="blob-code blob-code-inner js-file-line">    <span class="pl-ent">rev</span>: <span class="pl-s">v1.1.0</span></td>
       </tr>
       <tr>
         <td id="L17" class="blob-num js-line-number" data-line-number="17"></td>
-        <td id="LC17" class="blob-code blob-code-inner js-file-line">click==7.1.2              # via black, pip-tools</td>
+        <td id="LC17" class="blob-code blob-code-inner js-file-line">    <span class="pl-ent">hooks</span>:</td>
       </tr>
       <tr>
         <td id="L18" class="blob-num js-line-number" data-line-number="18"></td>
-        <td id="LC18" class="blob-code blob-code-inner js-file-line">dataclasses==0.7          # via black</td>
+        <td id="LC18" class="blob-code blob-code-inner js-file-line">      - <span class="pl-ent">id</span>: <span class="pl-s">python-safety-dependencies-check</span></td>
       </tr>
       <tr>
         <td id="L19" class="blob-num js-line-number" data-line-number="19"></td>
-        <td id="LC19" class="blob-code blob-code-inner js-file-line">decorator==4.4.2          # via ipython, traitlets</td>
+        <td id="LC19" class="blob-code blob-code-inner js-file-line">  - <span class="pl-ent">repo</span>: <span class="pl-s">https://gitlab.com/pycqa/flake8</span></td>
       </tr>
       <tr>
         <td id="L20" class="blob-num js-line-number" data-line-number="20"></td>
-        <td id="LC20" class="blob-code blob-code-inner js-file-line">defusedxml==0.6.0         # via nbconvert</td>
+        <td id="LC20" class="blob-code blob-code-inner js-file-line">    <span class="pl-ent">rev</span>: <span class="pl-s">3.7.9</span></td>
       </tr>
       <tr>
         <td id="L21" class="blob-num js-line-number" data-line-number="21"></td>
-        <td id="LC21" class="blob-code blob-code-inner js-file-line">detect-secrets==0.14.3    # via -r requirements.dev.in</td>
+        <td id="LC21" class="blob-code blob-code-inner js-file-line">    <span class="pl-ent">hooks</span>:</td>
       </tr>
       <tr>
         <td id="L22" class="blob-num js-line-number" data-line-number="22"></td>
-        <td id="LC22" class="blob-code blob-code-inner js-file-line">distlib==0.3.1            # via virtualenv</td>
+        <td id="LC22" class="blob-code blob-code-inner js-file-line">      - <span class="pl-ent">id</span>: <span class="pl-s">flake8</span></td>
       </tr>
       <tr>
         <td id="L23" class="blob-num js-line-number" data-line-number="23"></td>
-        <td id="LC23" class="blob-code blob-code-inner js-file-line">entrypoints==0.3          # via nbconvert</td>
+        <td id="LC23" class="blob-code blob-code-inner js-file-line">  - <span class="pl-ent">repo</span>: <span class="pl-s">https://github.com/prettier/prettier</span></td>
       </tr>
       <tr>
         <td id="L24" class="blob-num js-line-number" data-line-number="24"></td>
-        <td id="LC24" class="blob-code blob-code-inner js-file-line">filelock==3.0.12          # via virtualenv</td>
+        <td id="LC24" class="blob-code blob-code-inner js-file-line">    <span class="pl-ent">rev</span>: <span class="pl-s"><span class="pl-pds">&quot;</span>2.0.5<span class="pl-pds">&quot;</span></span> <span class="pl-c"><span class="pl-c">#</span> Use the sha or tag you want to point at</span></td>
       </tr>
       <tr>
         <td id="L25" class="blob-num js-line-number" data-line-number="25"></td>
-        <td id="LC25" class="blob-code blob-code-inner js-file-line">flake8==3.8.3             # via -r requirements.dev.in</td>
+        <td id="LC25" class="blob-code blob-code-inner js-file-line">    <span class="pl-ent">hooks</span>:</td>
       </tr>
       <tr>
         <td id="L26" class="blob-num js-line-number" data-line-number="26"></td>
-        <td id="LC26" class="blob-code blob-code-inner js-file-line">identify==1.4.29          # via pre-commit</td>
+        <td id="LC26" class="blob-code blob-code-inner js-file-line">      - <span class="pl-ent">id</span>: <span class="pl-s">prettier</span></td>
       </tr>
       <tr>
         <td id="L27" class="blob-num js-line-number" data-line-number="27"></td>
-        <td id="LC27" class="blob-code blob-code-inner js-file-line">idna==2.10                # via requests</td>
+        <td id="LC27" class="blob-code blob-code-inner js-file-line">  - <span class="pl-ent">repo</span>: <span class="pl-s">git@github.com:Yelp/detect-secrets</span></td>
       </tr>
       <tr>
         <td id="L28" class="blob-num js-line-number" data-line-number="28"></td>
-        <td id="LC28" class="blob-code blob-code-inner js-file-line">importlib-metadata==1.7.0  # via flake8, jsonschema, pre-commit, virtualenv</td>
+        <td id="LC28" class="blob-code blob-code-inner js-file-line">    <span class="pl-ent">rev</span>: <span class="pl-s">v0.13.1</span></td>
       </tr>
       <tr>
         <td id="L29" class="blob-num js-line-number" data-line-number="29"></td>
-        <td id="LC29" class="blob-code blob-code-inner js-file-line">importlib-resources==3.0.0  # via pre-commit, virtualenv</td>
+        <td id="LC29" class="blob-code blob-code-inner js-file-line">    <span class="pl-ent">hooks</span>:</td>
       </tr>
       <tr>
         <td id="L30" class="blob-num js-line-number" data-line-number="30"></td>
-        <td id="LC30" class="blob-code blob-code-inner js-file-line">ipykernel==5.3.4          # via notebook</td>
+        <td id="LC30" class="blob-code blob-code-inner js-file-line">      - <span class="pl-ent">id</span>: <span class="pl-s">detect-secrets</span></td>
       </tr>
       <tr>
         <td id="L31" class="blob-num js-line-number" data-line-number="31"></td>
-        <td id="LC31" class="blob-code blob-code-inner js-file-line">ipython-genutils==0.2.0   # via nbformat, notebook, traitlets</td>
-      </tr>
-      <tr>
-        <td id="L32" class="blob-num js-line-number" data-line-number="32"></td>
-        <td id="LC32" class="blob-code blob-code-inner js-file-line">ipython==7.16.1           # via ipykernel</td>
-      </tr>
-      <tr>
-        <td id="L33" class="blob-num js-line-number" data-line-number="33"></td>
-        <td id="LC33" class="blob-code blob-code-inner js-file-line">isort[requirements]==5.4.2  # via -r requirements.dev.in</td>
-      </tr>
-      <tr>
-        <td id="L34" class="blob-num js-line-number" data-line-number="34"></td>
-        <td id="LC34" class="blob-code blob-code-inner js-file-line">jedi==0.17.2              # via ipython</td>
-      </tr>
-      <tr>
-        <td id="L35" class="blob-num js-line-number" data-line-number="35"></td>
-        <td id="LC35" class="blob-code blob-code-inner js-file-line">jinja2==2.11.2            # via jupyterlab, jupyterlab-server, nbconvert, notebook</td>
-      </tr>
-      <tr>
-        <td id="L36" class="blob-num js-line-number" data-line-number="36"></td>
-        <td id="LC36" class="blob-code blob-code-inner js-file-line">json5==0.9.5              # via jupyterlab-server</td>
-      </tr>
-      <tr>
-        <td id="L37" class="blob-num js-line-number" data-line-number="37"></td>
-        <td id="LC37" class="blob-code blob-code-inner js-file-line">jsonschema==3.2.0         # via jupyterlab-server, nbformat</td>
-      </tr>
-      <tr>
-        <td id="L38" class="blob-num js-line-number" data-line-number="38"></td>
-        <td id="LC38" class="blob-code blob-code-inner js-file-line">jupyter-client==6.1.7     # via ipykernel, notebook</td>
-      </tr>
-      <tr>
-        <td id="L39" class="blob-num js-line-number" data-line-number="39"></td>
-        <td id="LC39" class="blob-code blob-code-inner js-file-line">jupyter-core==4.6.3       # via jupyter-client, nbconvert, nbformat, notebook</td>
-      </tr>
-      <tr>
-        <td id="L40" class="blob-num js-line-number" data-line-number="40"></td>
-        <td id="LC40" class="blob-code blob-code-inner js-file-line">jupyterlab-server==1.2.0  # via jupyterlab</td>
-      </tr>
-      <tr>
-        <td id="L41" class="blob-num js-line-number" data-line-number="41"></td>
-        <td id="LC41" class="blob-code blob-code-inner js-file-line">jupyterlab==2.2.6         # via -r requirements.dev.in</td>
-      </tr>
-      <tr>
-        <td id="L42" class="blob-num js-line-number" data-line-number="42"></td>
-        <td id="LC42" class="blob-code blob-code-inner js-file-line">markupsafe==1.1.1         # via jinja2</td>
-      </tr>
-      <tr>
-        <td id="L43" class="blob-num js-line-number" data-line-number="43"></td>
-        <td id="LC43" class="blob-code blob-code-inner js-file-line">mccabe==0.6.1             # via flake8</td>
-      </tr>
-      <tr>
-        <td id="L44" class="blob-num js-line-number" data-line-number="44"></td>
-        <td id="LC44" class="blob-code blob-code-inner js-file-line">mistune==0.8.4            # via nbconvert</td>
-      </tr>
-      <tr>
-        <td id="L45" class="blob-num js-line-number" data-line-number="45"></td>
-        <td id="LC45" class="blob-code blob-code-inner js-file-line">mypy-extensions==0.4.3    # via black</td>
-      </tr>
-      <tr>
-        <td id="L46" class="blob-num js-line-number" data-line-number="46"></td>
-        <td id="LC46" class="blob-code blob-code-inner js-file-line">nbconvert==5.6.1          # via notebook</td>
-      </tr>
-      <tr>
-        <td id="L47" class="blob-num js-line-number" data-line-number="47"></td>
-        <td id="LC47" class="blob-code blob-code-inner js-file-line">nbformat==5.0.7           # via nbconvert, notebook</td>
-      </tr>
-      <tr>
-        <td id="L48" class="blob-num js-line-number" data-line-number="48"></td>
-        <td id="LC48" class="blob-code blob-code-inner js-file-line">nodeenv==1.5.0            # via pre-commit</td>
-      </tr>
-      <tr>
-        <td id="L49" class="blob-num js-line-number" data-line-number="49"></td>
-        <td id="LC49" class="blob-code blob-code-inner js-file-line">nose==1.3.7               # via -r requirements.dev.in</td>
-      </tr>
-      <tr>
-        <td id="L50" class="blob-num js-line-number" data-line-number="50"></td>
-        <td id="LC50" class="blob-code blob-code-inner js-file-line">notebook==6.1.3           # via jupyterlab, jupyterlab-server</td>
-      </tr>
-      <tr>
-        <td id="L51" class="blob-num js-line-number" data-line-number="51"></td>
-        <td id="LC51" class="blob-code blob-code-inner js-file-line">packaging==20.4           # via bleach</td>
-      </tr>
-      <tr>
-        <td id="L52" class="blob-num js-line-number" data-line-number="52"></td>
-        <td id="LC52" class="blob-code blob-code-inner js-file-line">pandocfilters==1.4.2      # via nbconvert</td>
-      </tr>
-      <tr>
-        <td id="L53" class="blob-num js-line-number" data-line-number="53"></td>
-        <td id="LC53" class="blob-code blob-code-inner js-file-line">parso==0.7.1              # via jedi</td>
-      </tr>
-      <tr>
-        <td id="L54" class="blob-num js-line-number" data-line-number="54"></td>
-        <td id="LC54" class="blob-code blob-code-inner js-file-line">pathspec==0.8.0           # via black</td>
-      </tr>
-      <tr>
-        <td id="L55" class="blob-num js-line-number" data-line-number="55"></td>
-        <td id="LC55" class="blob-code blob-code-inner js-file-line">pexpect==4.8.0            # via ipython</td>
-      </tr>
-      <tr>
-        <td id="L56" class="blob-num js-line-number" data-line-number="56"></td>
-        <td id="LC56" class="blob-code blob-code-inner js-file-line">pickleshare==0.7.5        # via ipython</td>
-      </tr>
-      <tr>
-        <td id="L57" class="blob-num js-line-number" data-line-number="57"></td>
-        <td id="LC57" class="blob-code blob-code-inner js-file-line">pip-tools==5.3.1          # via -r requirements.dev.in</td>
-      </tr>
-      <tr>
-        <td id="L58" class="blob-num js-line-number" data-line-number="58"></td>
-        <td id="LC58" class="blob-code blob-code-inner js-file-line">pre-commit==2.7.1         # via -r requirements.dev.in</td>
-      </tr>
-      <tr>
-        <td id="L59" class="blob-num js-line-number" data-line-number="59"></td>
-        <td id="LC59" class="blob-code blob-code-inner js-file-line">prometheus-client==0.8.0  # via notebook</td>
-      </tr>
-      <tr>
-        <td id="L60" class="blob-num js-line-number" data-line-number="60"></td>
-        <td id="LC60" class="blob-code blob-code-inner js-file-line">prompt-toolkit==3.0.6     # via ipython</td>
-      </tr>
-      <tr>
-        <td id="L61" class="blob-num js-line-number" data-line-number="61"></td>
-        <td id="LC61" class="blob-code blob-code-inner js-file-line">ptyprocess==0.6.0         # via pexpect, terminado</td>
-      </tr>
-      <tr>
-        <td id="L62" class="blob-num js-line-number" data-line-number="62"></td>
-        <td id="LC62" class="blob-code blob-code-inner js-file-line">pycodestyle==2.6.0        # via flake8</td>
-      </tr>
-      <tr>
-        <td id="L63" class="blob-num js-line-number" data-line-number="63"></td>
-        <td id="LC63" class="blob-code blob-code-inner js-file-line">pycparser==2.20           # via cffi</td>
-      </tr>
-      <tr>
-        <td id="L64" class="blob-num js-line-number" data-line-number="64"></td>
-        <td id="LC64" class="blob-code blob-code-inner js-file-line">pyflakes==2.2.0           # via flake8</td>
-      </tr>
-      <tr>
-        <td id="L65" class="blob-num js-line-number" data-line-number="65"></td>
-        <td id="LC65" class="blob-code blob-code-inner js-file-line">pygments==2.6.1           # via ipython, nbconvert</td>
-      </tr>
-      <tr>
-        <td id="L66" class="blob-num js-line-number" data-line-number="66"></td>
-        <td id="LC66" class="blob-code blob-code-inner js-file-line">pyparsing==2.4.7          # via packaging</td>
-      </tr>
-      <tr>
-        <td id="L67" class="blob-num js-line-number" data-line-number="67"></td>
-        <td id="LC67" class="blob-code blob-code-inner js-file-line">pyrsistent==0.16.0        # via jsonschema</td>
-      </tr>
-      <tr>
-        <td id="L68" class="blob-num js-line-number" data-line-number="68"></td>
-        <td id="LC68" class="blob-code blob-code-inner js-file-line">python-dateutil==2.8.1    # via jupyter-client</td>
-      </tr>
-      <tr>
-        <td id="L69" class="blob-num js-line-number" data-line-number="69"></td>
-        <td id="LC69" class="blob-code blob-code-inner js-file-line">pyyaml==5.3.1             # via detect-secrets, pre-commit</td>
-      </tr>
-      <tr>
-        <td id="L70" class="blob-num js-line-number" data-line-number="70"></td>
-        <td id="LC70" class="blob-code blob-code-inner js-file-line">pyzmq==19.0.2             # via jupyter-client, notebook</td>
-      </tr>
-      <tr>
-        <td id="L71" class="blob-num js-line-number" data-line-number="71"></td>
-        <td id="LC71" class="blob-code blob-code-inner js-file-line">regex==2020.7.14          # via black</td>
-      </tr>
-      <tr>
-        <td id="L72" class="blob-num js-line-number" data-line-number="72"></td>
-        <td id="LC72" class="blob-code blob-code-inner js-file-line">requests==2.24.0          # via detect-secrets, jupyterlab-server</td>
-      </tr>
-      <tr>
-        <td id="L73" class="blob-num js-line-number" data-line-number="73"></td>
-        <td id="LC73" class="blob-code blob-code-inner js-file-line">send2trash==1.5.0         # via notebook</td>
-      </tr>
-      <tr>
-        <td id="L74" class="blob-num js-line-number" data-line-number="74"></td>
-        <td id="LC74" class="blob-code blob-code-inner js-file-line">six==1.15.0               # via argon2-cffi, bleach, jsonschema, packaging, pip-tools, pyrsistent, python-dateutil, traitlets, virtualenv</td>
-      </tr>
-      <tr>
-        <td id="L75" class="blob-num js-line-number" data-line-number="75"></td>
-        <td id="LC75" class="blob-code blob-code-inner js-file-line">terminado==0.8.3          # via notebook</td>
-      </tr>
-      <tr>
-        <td id="L76" class="blob-num js-line-number" data-line-number="76"></td>
-        <td id="LC76" class="blob-code blob-code-inner js-file-line">testpath==0.4.4           # via nbconvert</td>
-      </tr>
-      <tr>
-        <td id="L77" class="blob-num js-line-number" data-line-number="77"></td>
-        <td id="LC77" class="blob-code blob-code-inner js-file-line">toml==0.10.1              # via black, pre-commit</td>
-      </tr>
-      <tr>
-        <td id="L78" class="blob-num js-line-number" data-line-number="78"></td>
-        <td id="LC78" class="blob-code blob-code-inner js-file-line">tornado==6.0.4            # via ipykernel, jupyter-client, jupyterlab, notebook, terminado</td>
-      </tr>
-      <tr>
-        <td id="L79" class="blob-num js-line-number" data-line-number="79"></td>
-        <td id="LC79" class="blob-code blob-code-inner js-file-line">traitlets==4.3.3          # via ipykernel, ipython, jupyter-client, jupyter-core, nbconvert, nbformat, notebook</td>
-      </tr>
-      <tr>
-        <td id="L80" class="blob-num js-line-number" data-line-number="80"></td>
-        <td id="LC80" class="blob-code blob-code-inner js-file-line">typed-ast==1.4.1          # via black</td>
-      </tr>
-      <tr>
-        <td id="L81" class="blob-num js-line-number" data-line-number="81"></td>
-        <td id="LC81" class="blob-code blob-code-inner js-file-line">typing-extensions==3.7.4.3  # via black</td>
-      </tr>
-      <tr>
-        <td id="L82" class="blob-num js-line-number" data-line-number="82"></td>
-        <td id="LC82" class="blob-code blob-code-inner js-file-line">urllib3==1.25.10          # via requests</td>
-      </tr>
-      <tr>
-        <td id="L83" class="blob-num js-line-number" data-line-number="83"></td>
-        <td id="LC83" class="blob-code blob-code-inner js-file-line">virtualenv==20.0.31       # via pre-commit</td>
-      </tr>
-      <tr>
-        <td id="L84" class="blob-num js-line-number" data-line-number="84"></td>
-        <td id="LC84" class="blob-code blob-code-inner js-file-line">wcwidth==0.2.5            # via prompt-toolkit</td>
-      </tr>
-      <tr>
-        <td id="L85" class="blob-num js-line-number" data-line-number="85"></td>
-        <td id="LC85" class="blob-code blob-code-inner js-file-line">webencodings==0.5.1       # via bleach</td>
-      </tr>
-      <tr>
-        <td id="L86" class="blob-num js-line-number" data-line-number="86"></td>
-        <td id="LC86" class="blob-code blob-code-inner js-file-line">zipp==3.1.0               # via importlib-metadata, importlib-resources</td>
-      </tr>
-      <tr>
-        <td id="L87" class="blob-num js-line-number" data-line-number="87"></td>
-        <td id="LC87" class="blob-code blob-code-inner js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L88" class="blob-num js-line-number" data-line-number="88"></td>
-        <td id="LC88" class="blob-code blob-code-inner js-file-line"># The following packages are considered to be unsafe in a requirements file:</td>
-      </tr>
-      <tr>
-        <td id="L89" class="blob-num js-line-number" data-line-number="89"></td>
-        <td id="LC89" class="blob-code blob-code-inner js-file-line"># pip</td>
-      </tr>
-      <tr>
-        <td id="L90" class="blob-num js-line-number" data-line-number="90"></td>
-        <td id="LC90" class="blob-code blob-code-inner js-file-line"># setuptools</td>
+        <td id="LC31" class="blob-code blob-code-inner js-file-line">        <span class="pl-ent">args</span>: <span class="pl-s">[&quot;--baseline&quot;, &quot;.secrets.baseline&quot;]</span></td>
       </tr>
 </table>
 
@@ -1530,7 +1293,7 @@ Updated black to the new version and black takes care of the pre-commit hook dir
             Copy permalink
           </clipboard-copy>
         </li>
-        <li><a class="dropdown-item js-update-url-with-hash" id="js-view-git-blame" role="menuitem" href="/dafrenchyman/PythonProjectTemplate/blame/e0ce3cc46663b77d17d4de54b0dcf8e5e43e60aa/requirements.dev.txt">View git blame</a></li>
+        <li><a class="dropdown-item js-update-url-with-hash" id="js-view-git-blame" role="menuitem" href="/dafrenchyman/PythonProjectTemplate/blame/e0ce3cc46663b77d17d4de54b0dcf8e5e43e60aa/.pre-commit-config.yaml">View git blame</a></li>
           <li><a class="dropdown-item" id="js-new-issue" role="menuitem" href="/dafrenchyman/PythonProjectTemplate/issues/new">Reference in new issue</a></li>
       </ul>
     </details-menu>
