@@ -28,19 +28,45 @@ import numpy as np
 from sklearn import datasets
 import plotly.graph_objects as go
 import plotly.express as px
-from ipywidgets import widgets
+import pip
+import importlib
+#from ipywidgets import widgets
+
+# Libraries needed
+modules = ['pandas', 'numpy', 'plotly', 'sklearn']
+##### taken from https://stackoverflow.com/questions/49117074/have-python-script-check-for-missing-modules-and-install-if-missing
+
+for modname in modules:
+    try:
+        # try to import the module normally and put it in globals
+        globals()[modname] = importlib.import_module(modname)
+    except ImportError as e:
+        result = pip.main(['install', modname])
+        if result != 0: # if pip could not install it reraise the error
+            raise
+        else:
+            # if the install was sucessful, put modname in globals
+            globals()[modname] = importlib.import_module(modname)
+#####
+            
 # define the columns of the data to be imported since we know the data does not have lables. Also allows for change to columns for differnet data via variable.
 data_col = ['sepal length in cm','sepal width in cm','petal length in cm','petal width in cm','class'] #chg
 # SKlearn has iris dataset included but for instructional pourposes we are gettgin the data set from a file.
-filename = input("what is the filename? ")
+filename = input("what is the filename? [default:iris.data]") or 'iris.data'
 file_data = pd.read_csv(filename, names=data_col)
-# Example of DataFrame
-file_data.head()
-np.mean(file_data)
-np.min(file_data)
-np.max(file_data)
-np.var(file_data)
-# plotting
+## Example of DataFrame
+print('Sample:\n***************')
+print(file_data.head())
+## Simple stats
+print('\nMean:\n***************')
+print(np.mean(file_data))
+print('\nMin:\n***************')
+print(np.min(file_data))
+print('\nMax:\n***************')
+print(np.max(file_data))
+print('\nVariance:\n***************')
+print(np.var(file_data))
+## Plotting
 # overview plot
 fig = px.scatter_matrix(file_data, dimensions=data_col, color=file_data.columns[4],width=1600, height=800)
 fig.update_traces(diagonal_visible=True)
@@ -61,7 +87,7 @@ fig3.update_layout(title_text=f'{var1} vs. {var2}')
 fig3.show()
 #3D scatter with color
 fig4 = px.scatter_3d(file_data, x=file_data.columns[0], y=file_data.columns[1], z=file_data.columns[2],
-                    color=file_data.columns[3], symbol=file_data.columns[4],width=1600, height=800)
+                    color=file_data.columns[3], symbol=file_data.columns[4],width=1600, height=1000)
 fig4.show()
 #parallel cats
 fig5 = px.parallel_categories(file_data)
