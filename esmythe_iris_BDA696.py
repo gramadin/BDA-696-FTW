@@ -30,6 +30,12 @@ import plotly.graph_objects as go
 import plotly.express as px
 import pip
 import importlib
+import sys
+from sklearn.preprocessing import Normalizer
+from sklearn.ensemble import RandomForestClassifier
+from sklearn.pipeline import Pipeline
+from sklearn.preprocessing import OneHotEncoder
+
 #from ipywidgets import widgets
 
 # Libraries needed
@@ -92,3 +98,46 @@ fig4.show()
 #parallel cats
 fig5 = px.parallel_categories(file_data)
 fig5.show()
+
+## Normalizer
+Col1=file_data.columns[0]
+Col2=file_data.columns[1]
+Col3=file_data.columns[2]
+Col4=file_data.columns[3]
+Col5=file_data.columns[4]
+
+x_orig = file_data[[Col1,Col2,Col3,Col4]].values
+#x_orig
+y = file_data[Col5].values
+one_hot_encoder= OneHotEncoder()
+one_hot_encoder.fit(x_orig)
+X=one_hot_encoder.transform(x_orig)
+## Random Forest
+random_forest = RandomForestClassifier(random_state=1234)
+random_forest.fit(X,y)
+test_df = file_data[[Col1,Col2,Col3,Col4]]
+
+print(test_df)
+ 
+X_test_orig = test_df.values
+X_test = one_hot_encoder.transform(X_test_orig)
+prediction = random_forest.predict(X_test)
+probability = random_forest.predict_proba(X_test)
+
+print(f"Classes: {random_forest.classes_}")
+print(f"Probability: {probability}")
+print(f"Predictions: {prediction}")
+
+## Pipeline for above
+pipeline = Pipeline(
+    [
+        ("OneHotEncode", OneHotEncoder()),
+        ("RandomForest", RandomForestClassifier(random_state=1234)),
+    ]
+)
+pipeline.fit(x_orig, y)
+
+probability = pipeline.predict_proba(X_test_orig)
+prediction = pipeline.predict(X_test_orig)
+print(f"Probability: {probability}")
+print(f"Predictions: {prediction}")
