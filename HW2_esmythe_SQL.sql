@@ -4,9 +4,9 @@
   Current run time is ~ 12.605s
   New Tables Created:
   player_bat_avg 		-Unique player numbers
-  player_bat_avg_all	-Batting Average for all players by game
-  REPORT				-Each player with historic and annual averages for all years in data
-  hist_calc				-holds historic calculated data
+  player_bat_avg_all		-Batting Average for all players by game
+  REPORT			-Each player with historic and annual averages for all years in data
+  hist_calc			-holds historic calculated data
   annual_calc			-holds annual calculated data
 */
 
