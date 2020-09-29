@@ -118,10 +118,12 @@ def main():
         """
         select
             batter
+            , game_id
             , atBat
             , Hit 
             , (Hit/nullif(atBat,0)) as game_bat_avg
         from batter
+        order by batter, game_id
         """
     )
     bat_avg.show()
