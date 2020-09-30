@@ -66,93 +66,115 @@ class SplitColumnTransform(
         return dataset
 
 
-def main():
-    # Setup Spark
-    spark = SparkSession.builder.master("local[*]").getOrCreate()
+    def main():
+        # Setup Spark
+        spark = SparkSession.builder.master("local[*]").getOrCreate()
 
-    # set up sql defaults
-    database = "baseball"
-    port = "3306"
-    user = "root"
-    password = "x11desktop"  # pragma: allowlist secret
+        # set up sql defaults
+        database = "baseball"
+        port = "3306"
+        user = "root"
+        password = "x11desktop"  # pragma: allowlist secret
 
-    # get table and make batter df
-    bb_df = (
-        spark.read.format("jdbc")
-        .options(
-            url=f"jdbc:mysql://localhost:{port}/{database}",
-            driver="com.mysql.cj.jdbc.Driver",
-            dbtable="batter_counts",
-            user=user,
-            password=password,
-            inferSchema="true",
-            header="true",
+        # get table and make batter df
+        bb_df = (
+            spark.read.format("jdbc")
+            .options(
+                url=f"jdbc:mysql://localhost:{port}/{database}",
+                driver="com.mysql.cj.jdbc.Driver",
+                dbtable="batter_counts",
+                user=user,
+                password=password,
+                inferSchema="true",
+                header="true",
+            )
+            .load()
         )
-        .load()
-    )
 
-    bb_df.select("batter", "game_id", "atBat", "Hit").show()
-    bb_df.createOrReplaceTempView("batter")
-    bb_df.persist(StorageLevel.DISK_ONLY)
+        bb_df.select("batter", "game_id", "atBat", "Hit").show()
+        bb_df.createOrReplaceTempView("batter")
+        bb_df.persist(StorageLevel.DISK_ONLY)
 
-    # get table and make game df
-    gd_df = (
-        spark.read.format("jdbc")
-        .options(
-            url=f"jdbc:mysql://localhost:{port}/{database}",
-            driver="com.mysql.cj.jdbc.Driver",
-            dbtable="game",
-            user=user,
-            password=password,
-            inferSchema="true",
-            header="true",
+        # get table and make game df
+        gd_df = (
+            spark.read.format("jdbc")
+            .options(
+                url=f"jdbc:mysql://localhost:{port}/{database}",
+                driver="com.mysql.cj.jdbc.Driver",
+                dbtable="game",
+                user=user,
+                password=password,
+                inferSchema="true",
+                header="true",
+            )
+            .load()
         )
-        .load()
-    )
 
-    gd_df.select("game_id", "local_date").show()
-    gd_df.createOrReplaceTempView("game")
-    gd_df.persist(StorageLevel.DISK_ONLY)
+        gd_df.select("game_id", "local_date").show()
+        gd_df.createOrReplaceTempView("game")
+        gd_df.persist(StorageLevel.DISK_ONLY)
 
-    bat_avg = spark.sql(
+        bat_avg = spark.sql(
+            """
+            select
+                batter
+                , game_id
+                , atBat
+                , Hit 
+                , (Hit/nullif(atBat,0)) as game_bat_avg
+            from batter
+            order by batter, game_id
+            """
+        )
+        bat_avg.show()
+        
+        test_df = spark.sql(
         """
-        select
-            batter
-            , game_id
-            , atBat
-            , Hit 
-            , (Hit/nullif(atBat,0)) as game_bat_avg
-        from batter
-        order by batter, game_id
-        """
-    )
-    bat_avg.show()
-    # make pipeline
+        SELECT
+                *
+                , SPLIT(CONCAT(
+                    CASE WHEN batter IS NULL THEN ""
+                    ELSE batter END,
+                    " ",
+                    CASE WHEN game_id IS NULL THEN ""
+                    ELSE game_id END,
+                    " ",
+                    CASE WHEN atBat IS NULL THEN ""
+                    ELSE atBat END,
+                    " ",
+                    CASE WHEN Hit IS NULL THEN ""
+                    ELSE Hit END
+                ), " ") AS categorical
+            FROM batter
+      """
+      )
+      test_df.show()
+        # make pipeline
 
-    split_column_transform = SplitColumnTransform(
-        inputCols=["batter", "game_id", "atBat", "Hit"], outputCol="categorical"
-    )
-    count_vectorizer = CountVectorizer(
-        inputCol="categorical", outputCol="categorical_vector"
-    )
-    random_forest = RandomForestClassifier(
-        labelCol="batter",
-        featuresCol="categorical_vector",
-        numTrees=100,
-        predictionCol="batting_avg",
-        probabilityCol="prob_of_hit",
-        rawPredictionCol="raw_pred_hit",
-    )
+        split_column_transform = SplitColumnTransform(
+            inputCols=["batter", "game_id", "atBat", "Hit"], outputCol="categorical"
+        )
+        count_vectorizer = CountVectorizer(
+            inputCol="categorical", outputCol="categorical_vector"
+        )
+        random_forest = RandomForestClassifier(
+            labelCol="batter",
+            featuresCol="categorical_vector",
+            numTrees=100,
+            predictionCol="batting_avg",
+            probabilityCol="prob_of_hit",
+            rawPredictionCol="raw_pred_hit",
+        )
 
-    pipeline = Pipeline(
-        stages=[split_column_transform, count_vectorizer, random_forest]
-    )
-    model = pipeline.fit(bb_df)
-    bb_df = model.transform(bb_df)
-    bb_df.show()
+        pipeline = Pipeline(
+            stages=[split_column_transform, count_vectorizer, random_forest]
+        )
+        model = pipeline.fit(bb_df)
+        bb_df = model.transform(bb_df)
+        bb_df.show()
 
-    return
+        return
 
 
-if __name__ == "__main__":
-    sys.exit(main())
+    if __name__ == "__main__":
+        sys.exit(main())
