@@ -115,6 +115,7 @@ def main():
             , atBat
             , Hit 
             , (Hit/nullif(atBat,0)) as game_bat_avg
+            , case when Hit > 0 then 1 else 0 end as ahit
         from batter_tab
         order by batter, game_id
         """
@@ -143,7 +144,7 @@ def main():
         )
     test_df.show()
     split_column_transform = SplitColumnTransform(
-        inputCols=["batter", "game_id", "atBat", "Hit"], outputCol="categorical"
+        inputCols=["batter", "game_id", "atBat", "Hit", "ahit"], outputCol="categorical"
     )
 
 
@@ -152,20 +153,20 @@ def main():
         inputCol="categorical", outputCol="categorical_vector"
     )
     random_forest = RandomForestClassifier(
-        labelCol="batter",
-        featuresCol="categorical_vector",
-        numTrees=100,
-        predictionCol="batting_avg",
-        probabilityCol="prob_of_hit",
-        rawPredictionCol="raw_pred_hit",
+    labelCol="ahit",
+    featuresCol="categorical_vector",
+    numTrees=100,
+    predictionCol="will_hit",
+    probabilityCol="prob_of_hit",
+    rawPredictionCol="raw_pred_hit",
     )
 
     pipeline = Pipeline(
         stages=[split_column_transform, count_vectorizer, random_forest]
     )
-    model = pipeline.fit(bb_df)
-    bb_df = model.transform(bb_df)
-    bb_df.show()
+    model = pipeline.fit(bat_avg)
+    bat_avg = model.transform(bat_avg)
+    bat_avg.show()
 
     return
 
