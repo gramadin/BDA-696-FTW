@@ -152,7 +152,7 @@ def main():
         inputCol="categorical", outputCol="categorical_vector"
     )
     random_forest = RandomForestClassifier(
-        labelCol="hit",
+        labelCol="batter",
         featuresCol="categorical_vector",
         numTrees=100,
         predictionCol="batting_avg",
