@@ -71,7 +71,8 @@ def main():
         """
         )
     bat_avg.show()
-
+    
+    RETURN
 
 if __name__ == "__main__":
     sys.exit(main())
