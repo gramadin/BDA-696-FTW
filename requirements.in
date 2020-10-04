@@ -17,3 +17,4 @@ requests
 scikit-learn
 statsmodels
 sqlalchemy
+spark
