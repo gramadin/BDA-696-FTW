@@ -49,11 +49,7 @@ from sklearn.model_selection import GridSearchCV
 from sklearn.tree import DecisionTreeClassifier, export_graphviz
 
 
-
-
 # Ploting Continuous data
-
-#plot stuff
 def plot_continuous(working_df):
     user_db = working_df
     X = user_db.data
@@ -79,7 +75,7 @@ def plot_continuous(working_df):
         )
         fig.show()
         fig.write_html(
-            file=f"z:/plots/HW4_plot{idx}.html", include_plotlyjs="cdn"
+            file=f"./HW4_plot{idx}.html", include_plotlyjs="cdn"
         )
     return
 
@@ -153,30 +149,34 @@ def main():
 
     print(f'You chose {choice}')
 
+
+ 
     the_ds = choice
     # turn into a pandas df
     working_df = pd.DataFrame(the_ds.data, columns=the_ds.feature_names)
     working_df['target'] = pd.Series(the_ds.target)
     working_df.head()
 
-    # get column names
 
-    col_list = [i for i in working_df.columns]
+    # get column names
+    col_list = working_df.columns.values.tolist()
+
     # Increase pandas print viewport (so we see more on the screen)
     pd.set_option("display.max_rows", 60)
     pd.set_option("display.max_columns", 500)
     pd.set_option("display.width", 1_040)
 
-    working_df.columns = col_list
+    #working_df.columns = col_list
 
     # Drop rows with missing values
-    working_df = working_df.dropna()
+    #working_df = working_df.dropna()
 
     print_heading("Original Dataset")
     print(working_df)
 
     # Continuous Features ~ use a function to get which is continus
-    continuous_features = [col_list[:-1]]
+    # Need to find out why putting col_list[:-1] does not work here
+    continuous_features = ['sepal length (cm)', 'sepal width (cm)', 'petal length (cm)', 'petal width (cm)'] #chg
     X = working_df[continuous_features].values
 
     # Response
@@ -195,7 +195,7 @@ def main():
         decision_tree=decision_tree,
         feature_names=continuous_features,
         class_names="classification",
-        file_out="z:/trees/output",
+        file_out="./hw4_tree",
     )
 
     # Find an optimal tree via cross-validation
@@ -207,6 +207,8 @@ def main():
         DecisionTreeClassifier(random_state=tree_random_state), parameters, n_jobs=4
     )
     decision_tree_grid_search.fit(X=X, y=y)
+
+
 
     cv_results = DataFrame(decision_tree_grid_search.cv_results_["params"])
     cv_results["score"] = decision_tree_grid_search.cv_results_["mean_test_score"]
@@ -234,7 +236,7 @@ def main():
     ]
 
     layout = go.Layout(
-        title="Fisher's Iris Cross Validation",
+        title="Cross Validation",
         xaxis_title="Tree Depth",
         yaxis_title="Score",
     )
@@ -242,7 +244,7 @@ def main():
     fig = go.Figure(data=data, layout=layout)
     fig.show()
     fig.write_html(
-        file="z:/plots/HW4_cross_val.html",
+        file="./HW4_cross_val.html",
         include_plotlyjs="cdn",
     )
 
@@ -254,7 +256,7 @@ def main():
         decision_tree=best_tree_model,
         feature_names=continuous_features,
         class_names="classification",
-        file_out="z:/plots/HW4_cross_val",
+        file_out="./HW4_cross_val",
     )
 #    F" {(datetime.now() - start_t)} seconds"
     return
