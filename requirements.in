@@ -17,10 +17,3 @@ requests
 scikit-learn
 statsmodels
 sqlalchemy
-spark
-sys
-time
-statsmodels
-pydot
-datetime
-io

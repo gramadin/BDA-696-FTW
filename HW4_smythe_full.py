@@ -5,7 +5,8 @@ Homework - Assignment 4
     Given a pandas dataframe
         Contains both a response and predictors
     Given a list of predictors and the response columns
-        Determine if response is continuous or boolean (don't worry about >2 category predictions)
+        Determine if response is continuous or boolean
+            (don't worry about >2 category predictions)
         Loop through each predictor column
             Determine if the predictor cat/cont
             Automatically generate the necessary plot(s) to inspect it
@@ -13,10 +14,12 @@ Homework - Assignment 4
                 p-value & t-score along with it's plot
                     Regression: Continuous response
                     Logistic Regression: Boolean response
-                Difference with mean of response along with it's plot (weighted and unweighted)
+                Difference with mean of response along with it's plot
+                    (weighted and unweighted)
                 Random Forest Variable importance ranking
             Generate a table with all the variables and their rankings
-    I'm going to grade this by giving it some random dataset and seeing if it outputs everything
+    I'm going to grade this by giving it some random dataset and seeing
+        if it outputs everything
     Desire: HTML based rankings report with links to the plots
 
     Recommendations for plots
@@ -35,30 +38,28 @@ Homework - Assignment 4
                 Scatter plot with trendline
 """
 import sys
+from io import StringIO
+
 import pandas as pd
 import plotly.express as px
-import time
-import statsmodels.api as sm
 import pydot
-import graphviz
-from datetime import datetime
-from sklearn import datasets
-from io import StringIO
+import statsmodels.api
 from pandas import DataFrame
 from plotly import graph_objects as go
+from sklearn import datasets
 from sklearn.model_selection import GridSearchCV
 from sklearn.tree import DecisionTreeClassifier, export_graphviz
 
 
 # Ploting Continuous data
-def plot_continuous(to_plot):
-    user_db = to_plot
+def plot_continuous(working_df):
+    user_db = working_df
     X = user_db.data
     y = user_db.target
     for idx, column in enumerate(X.T):
         feature_name = user_db.feature_names[idx]
-        predictor = sm.add_constant(column)
-        linear_regression_model = sm.OLS(y, predictor)
+        predictor = statsmodels.api.add_constant(column)
+        linear_regression_model = statsmodels.api.OLS(y, predictor)
         linear_regression_model_fitted = linear_regression_model.fit()
         print(f"Variable: {feature_name}")
         print(linear_regression_model_fitted.summary())
@@ -75,39 +76,9 @@ def plot_continuous(to_plot):
             yaxis_title="y",
         )
         fig.show()
-        fig.write_html(
-            file=f"./HW4_lin_plot{idx}.html", include_plotlyjs="cdn"
-        )
+        fig.write_html(file=f"./HW4_plot{idx}.html", include_plotlyjs="cdn")
     return
 
-def plot_bool(to_plot):
-    user_db = to_plot
-    X = user_db.data
-    y = user_db.target
-    for idx, column in enumerate(X.T):
-        feature_name = user_db.feature_names[idx]
-        predictor = sm.add_constant(column)
-        log_regression_model = sm.Logit(y, predictor)
-        log_regression_model_fitted = log_regression_model.fit()
-        print(f"Variable: {feature_name}")
-        print(log_regression_model_fitted.summary())
-
-        # Get the stats
-        t_value = round(log_regression_model_fitted.tvalues[1], 6)
-        p_value = "{:.6e}".format(log_regression_model_fitted.pvalues[1])
-
-        # Plot the figure
-        fig = px.scatter(x=column, y=y, trendline="ols")
-        fig.update_layout(
-            title=f"Variable: {feature_name}: (t-value={t_value}) (p-value={p_value})",
-            xaxis_title=f"Variable: {feature_name}",
-            yaxis_title="y",
-        )
-        fig.show()
-        fig.write_html(
-            file=f"./HW4_log_plot{idx}.html", include_plotlyjs="cdn"
-        )
-    return
 
 def print_heading(title):
     print("*" * 80)
@@ -143,7 +114,8 @@ def main():
     ds7 = datasets.load_breast_cancer()
 
     # Get user inputs -- add error handeling
-    print(''' Select SKLearn dataset to use: ~default is 3~
+    print(
+        """ Select SKLearn dataset to use: ~default is 3~
                     1 - boston
                     2 - iris
                     3 - diabetes
@@ -152,41 +124,39 @@ def main():
                     6 - wine
                     7 - breast cancer
                     8 - user choice
-                  ''')
+                  """
+    )
 
-    choice = int(input('Which set? ' or 3));
+    choice = int(input("Which set? " or 3))
 
     if choice == 1:
-        the_ds = ds1
+        choice = ds1
     elif choice == 2:
-        the_ds = ds2
+        choice = ds2
     elif choice == 3:
-        the_ds = ds3
+        choice = ds3
     elif choice == 4:
-        the_ds = ds4
+        choice = ds4
     elif choice == 5:
-        the_ds = ds5
+        choice = ds5
     elif choice == 6:
-        the_ds = ds6
+        choice = ds6
     elif choice == 7:
-        the_ds = ds7
+        choice = ds7
     elif choice == 8:
-        the_ds = input('direct path to dataset: ')
-    elif choice == '':
-        the_ds = ds3
+        choice = input("direct path to dataset: ")
+    elif choice == "":
+        choice = ds3
     else:
         print(f"{choice} is an invalid entry. Please try again.")
 
-    print(f'You chose {choice}')
+    print(f"You chose {choice}")
 
-
-
-  
+    the_ds = choice
     # turn into a pandas df
     working_df = pd.DataFrame(the_ds.data, columns=the_ds.feature_names)
-    working_df['target'] = pd.Series(the_ds.target)
+    working_df["target"] = pd.Series(the_ds.target)
     working_df.head()
-
 
     # get column names
     col_list = working_df.columns.values.tolist()
@@ -196,21 +166,26 @@ def main():
     pd.set_option("display.max_columns", 500)
     pd.set_option("display.width", 1_040)
 
-    #working_df.columns = col_list
+    # working_df.columns = col_list
 
     # Drop rows with missing values
-    #working_df = working_df.dropna()
+    # working_df = working_df.dropna()
 
     print_heading("Original Dataset")
     print(working_df)
 
     # Continuous Features ~ use a function to get which is continus
     # Need to find out why putting col_list[:-1] does not work here
-    continuous_features = ['sepal length (cm)', 'sepal width (cm)', 'petal length (cm)', 'petal width (cm)'] #chg
+    continuous_features = [
+        "sepal length (cm)",
+        "sepal width (cm)",
+        "petal length (cm)",
+        "petal width (cm)",
+    ]  # chg
     X = working_df[continuous_features].values
 
     # Response
-    y = working_df['target'].values #chg
+    y = working_df[col_list[-1:]].values
 
     # Decision Tree Classifier
     max_tree_depth = 7
@@ -225,7 +200,7 @@ def main():
         decision_tree=decision_tree,
         feature_names=continuous_features,
         class_names="classification",
-        file_out="hw4_tree",
+        file_out="./hw4_tree",
     )
 
     # Find an optimal tree via cross-validation
@@ -237,8 +212,6 @@ def main():
         DecisionTreeClassifier(random_state=tree_random_state), parameters, n_jobs=4
     )
     decision_tree_grid_search.fit(X=X, y=y)
-
-
 
     cv_results = DataFrame(decision_tree_grid_search.cv_results_["params"])
     cv_results["score"] = decision_tree_grid_search.cv_results_["mean_test_score"]
@@ -274,7 +247,7 @@ def main():
     fig = go.Figure(data=data, layout=layout)
     fig.show()
     fig.write_html(
-        file="HW4_cross_val.html",
+        file="./HW4_cross_val.html",
         include_plotlyjs="cdn",
     )
 
@@ -286,10 +259,11 @@ def main():
         decision_tree=best_tree_model,
         feature_names=continuous_features,
         class_names="classification",
-        file_out="HW4_cross_val",
+        file_out="./HW4_cross_val",
     )
-#    F" {(datetime.now() - start_t)} seconds"
+    #    F" {(datetime.now() - start_t)} seconds"
     return
+
 
 if __name__ == "__main__":
     sys.exit(main())
