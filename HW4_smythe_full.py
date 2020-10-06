@@ -38,8 +38,9 @@ import sys
 import pandas as pd
 import plotly.express as px
 import time
-import statsmodels.api
+import statsmodels.api as sm
 import pydot
+import graphviz
 from datetime import datetime
 from sklearn import datasets
 from io import StringIO
@@ -50,14 +51,14 @@ from sklearn.tree import DecisionTreeClassifier, export_graphviz
 
 
 # Ploting Continuous data
-def plot_continuous(working_df):
-    user_db = working_df
+def plot_continuous(to_plot):
+    user_db = to_plot
     X = user_db.data
     y = user_db.target
     for idx, column in enumerate(X.T):
         feature_name = user_db.feature_names[idx]
-        predictor = statsmodels.api.add_constant(column)
-        linear_regression_model = statsmodels.api.OLS(y, predictor)
+        predictor = sm.add_constant(column)
+        linear_regression_model = sm.OLS(y, predictor)
         linear_regression_model_fitted = linear_regression_model.fit()
         print(f"Variable: {feature_name}")
         print(linear_regression_model_fitted.summary())
@@ -75,7 +76,36 @@ def plot_continuous(working_df):
         )
         fig.show()
         fig.write_html(
-            file=f"./HW4_plot{idx}.html", include_plotlyjs="cdn"
+            file=f"./HW4_lin_plot{idx}.html", include_plotlyjs="cdn"
+        )
+    return
+
+def plot_bool(to_plot):
+    user_db = to_plot
+    X = user_db.data
+    y = user_db.target
+    for idx, column in enumerate(X.T):
+        feature_name = user_db.feature_names[idx]
+        predictor = sm.add_constant(column)
+        log_regression_model = sm.Logit(y, predictor)
+        log_regression_model_fitted = log_regression_model.fit()
+        print(f"Variable: {feature_name}")
+        print(log_regression_model_fitted.summary())
+
+        # Get the stats
+        t_value = round(log_regression_model_fitted.tvalues[1], 6)
+        p_value = "{:.6e}".format(log_regression_model_fitted.pvalues[1])
+
+        # Plot the figure
+        fig = px.scatter(x=column, y=y, trendline="ols")
+        fig.update_layout(
+            title=f"Variable: {feature_name}: (t-value={t_value}) (p-value={p_value})",
+            xaxis_title=f"Variable: {feature_name}",
+            yaxis_title="y",
+        )
+        fig.show()
+        fig.write_html(
+            file=f"./HW4_log_plot{idx}.html", include_plotlyjs="cdn"
         )
     return
 
@@ -127,31 +157,31 @@ def main():
     choice = int(input('Which set? ' or 3));
 
     if choice == 1:
-        choice = ds1
+        the_ds = ds1
     elif choice == 2:
-        choice = ds2
+        the_ds = ds2
     elif choice == 3:
-        choice = ds3
+        the_ds = ds3
     elif choice == 4:
-        choice = ds4
+        the_ds = ds4
     elif choice == 5:
-        choice = ds5
+        the_ds = ds5
     elif choice == 6:
-        choice = ds6
+        the_ds = ds6
     elif choice == 7:
-        choice = ds7
+        the_ds = ds7
     elif choice == 8:
-        choice = input('direct path to dataset: ')
+        the_ds = input('direct path to dataset: ')
     elif choice == '':
-        choice = ds3
+        the_ds = ds3
     else:
         print(f"{choice} is an invalid entry. Please try again.")
 
     print(f'You chose {choice}')
 
 
- 
-    the_ds = choice
+
+  
     # turn into a pandas df
     working_df = pd.DataFrame(the_ds.data, columns=the_ds.feature_names)
     working_df['target'] = pd.Series(the_ds.target)
@@ -180,7 +210,7 @@ def main():
     X = working_df[continuous_features].values
 
     # Response
-    y = working_df[col_list[-1:]].values
+    y = working_df['target'].values #chg
 
     # Decision Tree Classifier
     max_tree_depth = 7
@@ -195,7 +225,7 @@ def main():
         decision_tree=decision_tree,
         feature_names=continuous_features,
         class_names="classification",
-        file_out="./hw4_tree",
+        file_out="hw4_tree",
     )
 
     # Find an optimal tree via cross-validation
@@ -244,7 +274,7 @@ def main():
     fig = go.Figure(data=data, layout=layout)
     fig.show()
     fig.write_html(
-        file="./HW4_cross_val.html",
+        file="HW4_cross_val.html",
         include_plotlyjs="cdn",
     )
 
@@ -256,7 +286,7 @@ def main():
         decision_tree=best_tree_model,
         feature_names=continuous_features,
         class_names="classification",
-        file_out="./HW4_cross_val",
+        file_out="HW4_cross_val",
     )
 #    F" {(datetime.now() - start_t)} seconds"
     return
