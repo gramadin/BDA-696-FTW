@@ -38,12 +38,13 @@ Homework - Assignment 4
                 Scatter plot with trendline
 """
 import sys
+import webbrowser
 from io import StringIO
 
 import pandas as pd
 import plotly.express as px
 import pydot
-import statsmodels.api
+import statsmodels.api as sm
 from pandas import DataFrame
 from plotly import graph_objects as go
 from sklearn import datasets
@@ -52,14 +53,14 @@ from sklearn.tree import DecisionTreeClassifier, export_graphviz
 
 
 # Ploting Continuous data
-def plot_continuous(working_df):
-    user_db = working_df
+def plot_continuous(to_plot):
+    user_db = to_plot
     X = user_db.data
     y = user_db.target
     for idx, column in enumerate(X.T):
         feature_name = user_db.feature_names[idx]
-        predictor = statsmodels.api.add_constant(column)
-        linear_regression_model = statsmodels.api.OLS(y, predictor)
+        predictor = sm.add_constant(column)
+        linear_regression_model = sm.OLS(y, predictor)
         linear_regression_model_fitted = linear_regression_model.fit()
         print(f"Variable: {feature_name}")
         print(linear_regression_model_fitted.summary())
@@ -76,7 +77,35 @@ def plot_continuous(working_df):
             yaxis_title="y",
         )
         fig.show()
-        fig.write_html(file=f"./HW4_plot{idx}.html", include_plotlyjs="cdn")
+        fig.write_html(file=f"./HW4_lin_plot{idx}.html", include_plotlyjs="cdn")
+    return
+
+
+def plot_bool(to_plot):
+    user_db = to_plot
+    X = user_db.data
+    y = user_db.target
+    for idx, column in enumerate(X.T):
+        feature_name = user_db.feature_names[idx]
+        predictor = sm.add_constant(column)
+        log_regression_model = sm.Logit(y, predictor)
+        log_regression_model_fitted = log_regression_model.fit()
+        print(f"Variable: {feature_name}")
+        print(log_regression_model_fitted.summary())
+
+        # Get the stats
+        t_value = round(log_regression_model_fitted.tvalues[1], 6)
+        p_value = "{:.6e}".format(log_regression_model_fitted.pvalues[1])
+
+        # Plot the figure
+        fig = px.scatter(x=column, y=y, trendline="ols")
+        fig.update_layout(
+            title=f"Variable: {feature_name}: (t-value={t_value}) (p-value={p_value})",
+            xaxis_title=f"Variable: {feature_name}",
+            yaxis_title="y",
+        )
+        fig.show()
+        fig.write_html(file=f"./HW4_log_plot{idx}.html", include_plotlyjs="cdn")
     return
 
 
@@ -99,6 +128,21 @@ def plot_decision_tree(decision_tree, feature_names, class_names, file_out):
         graph = pydot.graph_from_dot_data(dot_data.getvalue())
         graph[0].write_pdf(file_out + ".pdf")  # must access graph's first element
         graph[0].write_png(file_out + ".png")  # must access graph's first element
+
+
+"""
+def col_is_bool(df, col):  # col not working when placed into 'sepel_width_cm_'
+    global bool_test
+    titles = [i.replace(")", "_").replace("(", "").replace(" ", "_") for i in col_list]
+    df.columns = titles
+    df.sepel_width_cm_.unique()
+    c = len(working_df.sepel_width_cm_.unique())
+    if c == 2:
+        bool_test = True
+    else:
+        bool_test = False
+    return
+"""
 
 
 def main():
@@ -130,36 +174,42 @@ def main():
     choice = int(input("Which set? " or 3))
 
     if choice == 1:
-        choice = ds1
+        the_ds = ds1
     elif choice == 2:
-        choice = ds2
+        the_ds = ds2
     elif choice == 3:
-        choice = ds3
+        the_ds = ds3
     elif choice == 4:
-        choice = ds4
+        the_ds = ds4
     elif choice == 5:
-        choice = ds5
+        the_ds = ds5
     elif choice == 6:
-        choice = ds6
+        the_ds = ds6
     elif choice == 7:
-        choice = ds7
+        the_ds = ds7
     elif choice == 8:
-        choice = input("direct path to dataset: ")
+        the_ds = input("direct path to dataset: ")
     elif choice == "":
-        choice = ds3
+        the_ds = ds3
     else:
         print(f"{choice} is an invalid entry. Please try again.")
 
     print(f"You chose {choice}")
 
-    the_ds = choice
     # turn into a pandas df
     working_df = pd.DataFrame(the_ds.data, columns=the_ds.feature_names)
     working_df["target"] = pd.Series(the_ds.target)
     working_df.head()
 
     # get column names
-    col_list = working_df.columns.values.tolist()
+    # col_list = working_df.columns.values.tolist()
+    # titles =
+    # [i.replace(")", "_").replace("(", "").replace(" ", "_") for i in col_list]
+    # working_df.columns = titles
+
+    # Check if boolean
+    # bool_list = [col_is_bool(working_df,i) for i in titles]
+    # use when functions is working
 
     # Increase pandas print viewport (so we see more on the screen)
     pd.set_option("display.max_rows", 60)
@@ -185,7 +235,7 @@ def main():
     X = working_df[continuous_features].values
 
     # Response
-    y = working_df[col_list[-1:]].values
+    y = working_df["target"].values  # chg
 
     # Decision Tree Classifier
     max_tree_depth = 7
@@ -247,7 +297,7 @@ def main():
     fig = go.Figure(data=data, layout=layout)
     fig.show()
     fig.write_html(
-        file="./HW4_cross_val.html",
+        file="HW4_cross_val.html",
         include_plotlyjs="cdn",
     )
 
@@ -259,9 +309,26 @@ def main():
         decision_tree=best_tree_model,
         feature_names=continuous_features,
         class_names="classification",
-        file_out="./HW4_cross_val",
+        file_out="HW4_cross_val",
     )
     #    F" {(datetime.now() - start_t)} seconds"
+    file = open("report.html", "wb")
+
+    # not working
+    code = """<html>
+    <head>esmythe report</head>
+    <body><p>report</p>
+
+        <img src="HW4_tree.png" alt="cross_val">
+
+    </body>
+
+    </html>"""
+    file.write(code)
+    file.close()
+
+    webbrowser.open("report.html")
+
     return
 
 
