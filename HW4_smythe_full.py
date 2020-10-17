@@ -83,13 +83,12 @@ def plot_cont_cont(to_plot):
             xaxis_title=f"Variable: {feature_name}",
             yaxis_title="y",
         )
-        fig.show()
         fig.write_html(file=f"./HW4_lin_plot{idx}.html", include_plotlyjs="cdn")
     return
 
 
 def plot_cont_cat(to_plot):
-    # Violin plot on predictor grouped by response 
+    # Violin plot on predictor grouped by response
     user_db = to_plot
     X = user_db.data
     y = user_db.target
@@ -111,7 +110,6 @@ def plot_cont_cat(to_plot):
             xaxis_title=f"Variable: {feature_name}",
             yaxis_title="y",
         )
-        fig.show()
         fig.write_html(file=f"./HW4_cont_cat_violin_plot.html", include_plotlyjs="cdn")
     return
 
@@ -139,7 +137,6 @@ def plot_cat_cat(to_plot):
             xaxis_title=f"Variable: {feature_name}",
             yaxis_title="y",
         )
-        fig.show()
         fig.write_html(file=f"./HW4_cat_cat_violin_plot.html", include_plotlyjs="cdn")
     return
 
@@ -167,7 +164,6 @@ def plot_cat_cont(to_plot):
             xaxis_title=f"Variable: {feature_name}",
             yaxis_title="y",
         )
-        fig.show()
         fig.write_html(file=f"./HW4_cat_con_violin_plot{idx}.html",
                        include_plotlyjs="cdn")
     return
@@ -268,7 +264,6 @@ def main():
     col_list = working_df.columns.values.tolist()
     titles = [i.replace(')', "_").replace('(', "").replace(' ', '_') for i in col_list]
     working_df.columns = titles
-
     print_heading("Original Dataset")
     print(working_df)
 
@@ -280,22 +275,37 @@ def main():
     # Group Predictor types
     type_mask = [tot(working_df[i]) for i in col_list]
     predictor_array = np.column_stack((col_list, type_mask))
-    pred_df = pd.DataFrame(predictor_array, columns=["Predictor", "Type"])
+    pred_df = pd.DataFrame(predictor_array, columns=["Predictor", "Catagory"])
 
     # ~PREDICTORS~
     # Allow user to select the desired features
-    # feature_list = predictor_select(the_ds) #gettgin an exception with some DS
+    feature_list = predictor_select(the_ds) #gettgin an exception with some DS
 
-    cont_feature_df = pred_df[pred_df['Type'] == 'continuous']  # where tot continuous and bool_check false
-    cat_feature_df = pred_df[pred_df['Type'] != 'continuous']  # where tot not contious or bool_check true
-    if cat_feature_df.empty:
-        print('No Catagorical!')
-    if cont_feature_df.empty:
-        print('No Continuous!')
+    cont_feature_df = pred_df[pred_df['Catagory'] == 'continuous']  # where tot continuous and bool_check false
+    try:
+        cont_feature_df = cont_feature_df = cont_feature_df.drop('target', axis=1, inplace=True)
+    except Exception:
+        pass
+
+    cat_feature_df = pred_df[pred_df['Catagory'] != 'continuous']  # where tot not continuous or bool_check true
+    try:
+        cat_feature_df = cat_feature_df = cat_feature_df.drop('target', axis=1, inplace=True)
+    except Exception:
+        pass
+
+
+
+    print('No Continuous!') if cont_feature_df.empty else print(cont_feature_df)
+    print('No Catagorical!') if cat_feature_df.empty else print(cat_feature_df)
+
     cont_feature_list = list(cont_feature_df['Predictor'])
-    print('Continuous predictors ' + cont_feature_list)
     cat_feature_list = list(cat_feature_df['Predictor'])
-    print('Catagorical predictors ' +cat_feature_list)
+
+    # Make plots
+    plot_cont_cat(the_ds)
+    plot_cat_cont(the_ds)
+    plot_cat_cat(the_ds)
+    plot_cont_cont(the_ds)
 
     # Generate Report DF
     report_time = datetime.now().isoformat()
@@ -307,12 +317,17 @@ def main():
         "Difference_with_mean",
         "Random_Forest",
     )
-    # report_df_cont = pd.DataFrame("", index=continuous_features, columns=report_col)
-    # report_df_cat = pd.DataFrame("", index=catagorical_features, columns=report_col)
+    report_df_cont = pd.DataFrame("", index=cont_feature_list, columns=report_col)
+    report_df_cat = pd.DataFrame("", index=cat_feature_list, columns=report_col)
+
+    #Update Report with data
+    report_df_cont.update(cont_feature_df)
 
     # Save report to HTML
-    report_df = working_df
+    report_df = report_df_cont
     report_df.to_html("HW_report_" + datetime.now().strftime("%Y_%m_%d") + ".html")
 
+    print('check')
+    return
 if __name__ == "__main__":
     sys.exit(main())
