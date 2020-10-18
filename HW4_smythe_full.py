@@ -55,8 +55,10 @@ def plot_cont_cont(to_plot):
     user_db = to_plot
     X = user_db.data
     y = user_db.target
+    con_con_file_list = []
     for idx, column in enumerate(X.T):
         feature_name = user_db.feature_names[idx]
+        feature_name = feature_name.replace("/", "-")
         predictor = sm.add_constant(column)
         linear_regression_model = sm.OLS(y, predictor)
         linear_regression_model_fitted = linear_regression_model.fit()
@@ -74,8 +76,10 @@ def plot_cont_cont(to_plot):
             xaxis_title=f"Variable: {feature_name}",
             yaxis_title="y",
         )
-        fig.write_html(file=f"./HW4_lin_plot{idx}.html", include_plotlyjs="cdn")
-    return
+        file_name = f"./HW4_{feature_name}_lin_plot.html"
+        fig.write_html(file=file_name, include_plotlyjs="cdn")
+        con_con_file_list += [file_name]
+    return con_con_file_list
 
 
 def plot_cont_cat(to_plot):
@@ -83,9 +87,11 @@ def plot_cont_cat(to_plot):
     user_db = to_plot
     X = user_db.data
     y = user_db.target
+    con_cat_file_list = []
     #
     for idx, column in enumerate(X.T):
         feature_name = user_db.feature_names[idx]
+        feature_name = feature_name.replace("/", "-")
         predictor = sm.add_constant(column)
         #
         logistic_regression_model = LogisticRegression(random_state=4622).fit(
@@ -102,8 +108,10 @@ def plot_cont_cat(to_plot):
             xaxis_title=f"Variable: {feature_name}",
             yaxis_title="y",
         )
-        fig.write_html(file=f"./HW4_cont_cat_violin_plot.html", include_plotlyjs="cdn")
-    return
+        file_name = f"./HW4_{feature_name}_cont_cat_violin_plot.html"
+        fig.write_html(file=file_name, include_plotlyjs="cdn")
+        con_cat_file_list += [file_name]
+    return con_cat_file_list
 
 
 def plot_cat_cat(to_plot):
@@ -111,9 +119,11 @@ def plot_cat_cat(to_plot):
     user_db = to_plot
     X = user_db.data
     y = user_db.target
+    cat_cat_file_list = []
     #
     for idx, column in enumerate(X.T):
         feature_name = user_db.feature_names[idx]
+        feature_name = feature_name.replace("/", "-")
         predictor = sm.add_constant(column)
         #
         logistic_regression_model = LogisticRegression(random_state=4622).fit(
@@ -130,8 +140,10 @@ def plot_cat_cat(to_plot):
             xaxis_title=f"Variable: {feature_name}",
             yaxis_title="y",
         )
-        fig.write_html(file=f"./HW4_cat_cat_violin_plot.html", include_plotlyjs="cdn")
-    return
+        file_name = f"./HW4_{feature_name}_cat_cat_violin_plot.html"
+        fig.write_html(file=file_name, include_plotlyjs="cdn")
+        cat_cat_file_list += [f'<a href="file:///{file_name}">link</a>']
+    return cat_cat_file_list
 
 
 def plot_cat_cont(to_plot):
@@ -139,9 +151,11 @@ def plot_cat_cont(to_plot):
     user_db = to_plot
     X = user_db.data
     y = user_db.target
+    cat_con_file_list = []
     #
     for idx, column in enumerate(X.T):
         feature_name = user_db.feature_names[idx]
+        feature_name = feature_name.replace("/", "-")
         predictor = sm.add_constant(column)
         #
         logistic_regression_model = LogisticRegression(random_state=4622).fit(
@@ -158,10 +172,10 @@ def plot_cat_cont(to_plot):
             xaxis_title=f"Variable: {feature_name}",
             yaxis_title="y",
         )
-        fig.write_html(
-            file=f"./HW4_cat_con_violin_plot{idx}.html", include_plotlyjs="cdn"
-        )
-    return
+        file_name = f"./HW4_{feature_name}_cat_con_violin_plot{idx}.html"
+        fig.write_html(file=file_name, include_plotlyjs="cdn")
+        cat_con_file_list += [file_name]
+    return cat_con_file_list
 
 
 # add boolean check incase type check is wrong
@@ -288,9 +302,7 @@ def main():
         pred_df["Category"] == "continuous"
     ]  # where tot continuous and bool_check false
     try:
-        cont_feature_df = cont_feature_df = cont_feature_df.drop(
-            "target", axis=1, inplace=True
-        )
+        cont_feature_df = cont_feature_df.drop("target", axis=1, inplace=True)
     except Exception:
         pass
 
@@ -298,9 +310,7 @@ def main():
         pred_df["Category"] != "continuous"
     ]  # where tot not continuous or bool_check true
     try:
-        cat_feature_df = cat_feature_df = cat_feature_df.drop(
-            "target", axis=1, inplace=True
-        )
+        cat_feature_df = cat_feature_df.drop("target", axis=1, inplace=True)
     except Exception:
         pass
 
@@ -311,15 +321,15 @@ def main():
     # cat_feature_list = list(cat_feature_df["Predictor"])
 
     # Make plots
-    if res_type == "continuous":
-        plot_cat_cont(the_ds)
-        plot_cont_cont(the_ds)
-    else:
-        plot_cont_cat(the_ds)
-        plot_cat_cat(the_ds)
+    # if res_type == "continuous":
+    cat_con_file_list = plot_cat_cont(the_ds)
+    con_con_file_list = plot_cont_cont(the_ds)
+
+    # else:
+    con_cat_file_list = plot_cont_cat(the_ds)
+    cat_cat_file_list = plot_cat_cat(the_ds)
 
     # Generate Report DF
-    report_time = datetime.now().isoformat()
     report_col = (
         "Category",
         "p-val_&_t-val",
@@ -328,19 +338,29 @@ def main():
         "Difference_with_mean",
         "Random_Forest",
     )
-    report_df_cont = pd.DataFrame("", index=col_list, columns=report_col)
-    # report_df_cat = pd.DataFrame("", index=cat_feature_list, columns=report_col)
+    report_df = pd.DataFrame("", index=col_list, columns=report_col)
+    report_df = report_df.drop(["target"])
+    pred_df = pred_df.set_index(["Predictor"])
+    pred_df = pred_df.drop(["target"])
 
     # Update Report with data
-    report_df_cont.index.name = "Predictor"
-    pred_df.index = report_df_cont.index
-    pred_df = pred_df.set_index(["Predictor"])
-    list_to_df(pred_df, report_df_cont, "Category")
+    report_df.index.name = "Predictor"
+    pred_df.index = report_df.index
+
+    # add plots to report
+    list_to_df(pred_df, report_df, "Category")
+    temp_df = pd.DataFrame(cat_con_file_list, columns=["Logistic_Regression"])
+    list_to_df(temp_df, report_df, "Logistic_Regression")
+    temp_df = pd.DataFrame(con_con_file_list, columns=["Regression"])
+    list_to_df(temp_df, report_df, "Regression")
+    temp_df = pd.DataFrame(con_cat_file_list, columns=["Random_Forest"])
+    list_to_df(temp_df, report_df, "Random_Forest")
+    temp_df = pd.DataFrame(cat_cat_file_list, columns=["Difference_with_mean"])
+    list_to_df(temp_df, report_df, "Difference_with_mean")
 
     # Save report to HTML
-    report_df = report_df_cont
     report_df.to_html(
-        "HW_report_" + datetime.now().strftime("%Y_%m_%d") + {report_time} + ".html"
+        "HW_report_" + datetime.now().strftime("%Y_%m_%d-%H_%M") + ".html"
     )
     print(datetime.now() - start_t)
     return
