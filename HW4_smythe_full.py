@@ -1,6 +1,7 @@
 """
 Created by Ed Smythe Oct 2020
 BDA 696 @ SDSU
+Current run time ~ 7 seconds
 Given a pandas dataframe
     Contains both a response and predictors
 Given a list of predictors and the response columns
@@ -201,6 +202,10 @@ def print_heading(title):
     print("*" * 80)
     return
 
+def list_to_df(from_df,to_df,col):
+    temp_list = from_df[col].to_list()
+    to_df[col] = pd.Series(temp_list, index=to_df.index)
+
 
 # Main functions
 def main():
@@ -275,58 +280,60 @@ def main():
     # Group Predictor types
     type_mask = [tot(working_df[i]) for i in col_list]
     predictor_array = np.column_stack((col_list, type_mask))
-    pred_df = pd.DataFrame(predictor_array, columns=["Predictor", "Catagory"])
+    pred_df = pd.DataFrame(predictor_array, columns=["Predictor", "Category"])
 
     # ~PREDICTORS~
     # Allow user to select the desired features
-    feature_list = predictor_select(the_ds) #gettgin an exception with some DS
+    feature_list = predictor_select(the_ds)  # gettgin an exception with some DS
 
-    cont_feature_df = pred_df[pred_df['Catagory'] == 'continuous']  # where tot continuous and bool_check false
+    cont_feature_df = pred_df[pred_df['Category'] == 'continuous']  # where tot continuous and bool_check false
     try:
         cont_feature_df = cont_feature_df = cont_feature_df.drop('target', axis=1, inplace=True)
     except Exception:
         pass
 
-    cat_feature_df = pred_df[pred_df['Catagory'] != 'continuous']  # where tot not continuous or bool_check true
+    cat_feature_df = pred_df[pred_df['Category'] != 'continuous']  # where tot not continuous or bool_check true
     try:
         cat_feature_df = cat_feature_df = cat_feature_df.drop('target', axis=1, inplace=True)
     except Exception:
         pass
 
-
-
     print('No Continuous!') if cont_feature_df.empty else print(cont_feature_df)
-    print('No Catagorical!') if cat_feature_df.empty else print(cat_feature_df)
+    print('No Categorical!') if cat_feature_df.empty else print(cat_feature_df)
 
     cont_feature_list = list(cont_feature_df['Predictor'])
     cat_feature_list = list(cat_feature_df['Predictor'])
 
     # Make plots
-    plot_cont_cat(the_ds)
-    plot_cat_cont(the_ds)
-    plot_cat_cat(the_ds)
-    plot_cont_cont(the_ds)
+    if res_type == "continuous":
+        plot_cat_cont(the_ds)
+        plot_cont_cont(the_ds)
+    else:
+        plot_cont_cat(the_ds)
+        plot_cat_cat(the_ds)
 
     # Generate Report DF
     report_time = datetime.now().isoformat()
     report_col = (
-        "Catagory",
+        "Category",
         "p-val_&_t-val",
         "Regression",
         "Logistic_Regression",
         "Difference_with_mean",
         "Random_Forest",
     )
-    report_df_cont = pd.DataFrame("", index=cont_feature_list, columns=report_col)
-    report_df_cat = pd.DataFrame("", index=cat_feature_list, columns=report_col)
+    report_df_cont = pd.DataFrame("", index=col_list, columns=report_col)
+    # report_df_cat = pd.DataFrame("", index=cat_feature_list, columns=report_col)
 
-    #Update Report with data
-    report_df_cont.update(cont_feature_df)
+    # Update Report with data
+    report_df_cont.index.name = "Predictor"
+    pred_df.index = report_df_cont.index
+    pred_df = pred_df.set_index(['Predictor'])
+    list_to_df(pred_df, report_df_cont, 'Category')
 
     # Save report to HTML
     report_df = report_df_cont
     report_df.to_html("HW_report_" + datetime.now().strftime("%Y_%m_%d") + ".html")
-
     print('check')
     return
 if __name__ == "__main__":
