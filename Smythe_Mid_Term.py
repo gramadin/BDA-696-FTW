@@ -416,8 +416,8 @@ def main():
         "p-val_&_t-val",
         "Regression",
         "Logistic_Regression",
-        "Difference_with_mean",
-        "Random_Forest",
+        "If Cat v Cat",
+        "If Cont v Cat",
     )
     report_df = pd.DataFrame("", index=col_list, columns=report_col)
     report_df = report_df.drop(["target"])
@@ -435,8 +435,8 @@ def main():
     #    for i in pred_df:
     #            if res_type == "continuous" and i in cat_feature_list:
     con_cat_file_list = plot_cont_cat(the_ds)
-    temp_df = pd.DataFrame(con_cat_file_list, columns=["Random_Forest"])
-    list_to_df(temp_df, report_df, "Random_Forest")
+    temp_df = pd.DataFrame(con_cat_file_list, columns=["If Cont v Cat"])
+    list_to_df(temp_df, report_df, "If Cont v Cat")
     #            elif res_type == "continuous" and i in cont_feature_list:
     con_con_file_list, tp_list = plot_cont_cont(the_ds)
     temp_df = pd.DataFrame(con_con_file_list, columns=["Regression"])
@@ -452,8 +452,8 @@ def main():
     temp_df = pd.DataFrame(cat_con_file_list, columns=["Logistic_Regression"])
     list_to_df(temp_df, report_df, "Logistic_Regression")
     cat_cat_file_list = plot_cat_cat(the_ds)
-    temp_df = pd.DataFrame(cat_cat_file_list, columns=["Difference_with_mean"])
-    list_to_df(temp_df, report_df, "Difference_with_mean")
+    temp_df = pd.DataFrame(cat_cat_file_list, columns=["If Cat v Cat"])
+    list_to_df(temp_df, report_df, "If Cat v Cat")
     #    bool_list_2 =
     # correlation
     corr_con_con_list = [coor_con_con(working_df, i, "target") for i in col_list]
