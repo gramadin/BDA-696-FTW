@@ -26,21 +26,20 @@ Final output
         With links to individual plots done in HW#4
     3 Correlation Matricies
     3 "Brute Force" tables, with links to plots showing combined relationship
-I'm going to grade this by giving it some random dataset and seeing if it outputs
-    everything
+I'm going to grade this by giving it some random dataset and seeing if it outputs everything
 Due October 23rd
 """
 
-import os
 import sys
+import os
 from datetime import datetime
 
-import ipywidgets as widgets
 import numpy as np
 import pandas as pd
 import plotly.express as px
-import plotly.graph_objs as go
 import statsmodels.api as sm
+import ipywidgets as widgets
+import plotly.graph_objs as go
 from scipy import stats
 from sklearn import datasets
 from sklearn.linear_model import LogisticRegression
@@ -48,13 +47,14 @@ from sklearn.utils.multiclass import type_of_target as tot
 
 
 # PLOT Functions
-def adj_plot_hist(pred, initial_bin_width=3):  # missing the mean simple line plot
+def adj_plot_hist (pred, initial_bin_width=3): # missing the mean simple line plot
     pop_mean = [pred.mean()] * len(pred)
     figure_widget = go.FigureWidget(
-        data=[
-            go.Histogram(x=pred, xbins={"size": initial_bin_width}, name="Bin"),
-            go.Scatter(x=pred[0:], y=pop_mean, mode="lines", name="Predictor Mean"),
-        ]
+        data=[go.Histogram(x=pred, xbins={"size": initial_bin_width},
+                           name='Bin'),
+              go.Scatter(x=pred[0:], y=pop_mean,
+                         mode='lines',
+                         name='Predictor Mean')]
     )
 
     bin_slider = widgets.FloatSlider(
@@ -76,6 +76,14 @@ def adj_plot_hist(pred, initial_bin_width=3):  # missing the mean simple line pl
     output_widget = widgets.VBox([figure_widget, bin_slider])
     return output_widget
 
+def plot_hist (pred): # missing the mean simple line plot
+    pop_mean = [pred.mean()] * len(pred)
+    data=[go.Histogram(x=pred, xbins={"size": len(pred.unique())/20},
+                       name='Bin'),
+          go.Scatter(x=pred[0:], y=pop_mean,
+                     mode='lines',
+                     name='Predictor Mean')]
+    return
 
 def plot_cont_cont(to_plot):
     # Scatter plot with trendline
@@ -87,7 +95,7 @@ def plot_cont_cont(to_plot):
     tp_list = []
     for idx, column in enumerate(X.T):
         feature_name = user_db.feature_names[idx]
-        feature_name = feature_name.replace("/", "-")
+        feature_name = feature_name.replace("/","-")
         predictor = sm.add_constant(column)
         linear_regression_model = sm.OLS(y, predictor)
         linear_regression_model_fitted = linear_regression_model.fit()
@@ -108,7 +116,7 @@ def plot_cont_cont(to_plot):
         file_name = f"HW4_{feature_name}_lin_plot.html"
         fig.write_html(file=file_name, include_plotlyjs="cdn")
         con_con_file_list += [file_name]
-        tp_list += [f"{p_value} & {t_value}"]
+        tp_list += [f'{p_value} & {t_value}']
 
     return con_con_file_list, tp_list
 
@@ -118,11 +126,11 @@ def plot_cont_cat(to_plot):
     user_db = to_plot
     X = user_db.data
     y = user_db.target
-    con_cat_file_list = []
+    con_cat_file_list=[]
     #
     for idx, column in enumerate(X.T):
         feature_name = user_db.feature_names[idx]
-        feature_name = feature_name.replace("/", "-")
+        feature_name = feature_name.replace("/","-")
         predictor = sm.add_constant(column)
         #
         logistic_regression_model = LogisticRegression(random_state=4622).fit(
@@ -150,11 +158,11 @@ def plot_cat_cat(to_plot):
     user_db = to_plot
     X = user_db.data
     y = user_db.target
-    cat_cat_file_list = []
+    cat_cat_file_list=[]
     #
     for idx, column in enumerate(X.T):
         feature_name = user_db.feature_names[idx]
-        feature_name = feature_name.replace("/", "-")
+        feature_name = feature_name.replace("/","-")
         predictor = sm.add_constant(column)
         #
         logistic_regression_model = LogisticRegression(random_state=4622).fit(
@@ -182,11 +190,11 @@ def plot_cat_cont(to_plot):
     user_db = to_plot
     X = user_db.data
     y = user_db.target
-    cat_con_file_list = []
+    cat_con_file_list=[]
     #
     for idx, column in enumerate(X.T):
         feature_name = user_db.feature_names[idx]
-        feature_name = feature_name.replace("/", "-")
+        feature_name = feature_name.replace("/","-")
         predictor = sm.add_constant(column)
         #
         logistic_regression_model = LogisticRegression(random_state=4622).fit(
@@ -207,7 +215,6 @@ def plot_cat_cont(to_plot):
         fig.write_html(file=file_name, include_plotlyjs="cdn")
         cat_con_file_list += [file_name]
     return cat_con_file_list
-
 
 def plot_bool(to_plot):
     user_db = to_plot
@@ -238,9 +245,8 @@ def plot_bool(to_plot):
         bool_file_list += [file_name]
     return bool_file_list
 
-
 # add boolean check incase type check is wrong
-def col_is_bool(df, col):
+def col_is_bool(df,col):
     c = len(df[col].unique())
     if c == 2:
         return col
@@ -272,25 +278,28 @@ def print_heading(title):
     print("*" * 80)
     return
 
-
 def list_to_df(from_df, to_df, col):
     temp_list = from_df[col].to_list()
     to_df[col] = pd.Series(temp_list, index=to_df.index)
 
-
 def clickable_report(loc):
-    name = os.path.basename(loc)
+    name= os.path.basename(loc)
     # remove target="_blank" from below to open in the report tab
-    return '<a target="_blank" href="{}">{}</a>'.format(loc, name)
-
+    return '<a target="_blank" href=\"{}\">{}</a>'.format(loc,name)
 
 def coor_con_con(df, col, resp):
-    corr_con_con_list = []
+    corr_con_con_list =[]
     a = df[col]
     b = df[resp]
-    corr_con_con_list += [stats.pearsonr(a, b)]
+    corr_con_con_list += [stats.pearsonr(a,b)]
     return corr_con_con_list
 
+def coor_con_cat(df, col, resp):
+    corr_con_cat_list =[]
+    a = df[col]
+    b = df[resp]
+    corr_con_cat_list += [stats.kendalltau(a,b)]
+    return corr_con_cat_list
 
 # Main functions
 def main():
@@ -303,6 +312,7 @@ def main():
     ds5 = datasets.load_linnerud()
     ds6 = datasets.load_wine()
     ds7 = datasets.load_breast_cancer()
+
 
     # Get user inputs -- add error handeling
     # when response is continous then no 'target_names'
@@ -320,7 +330,7 @@ def main():
                   """
     )
 
-    choice = int(input("Which set? ") or 3)
+    choice = int(input("Which set? ")or 3)
 
     if choice == 1:
         the_ds = ds1
@@ -352,19 +362,21 @@ def main():
     # get column names
 
     col_list = working_df.columns.values.tolist()
+    #titles = [i.replace(")", "_").replace("(", "").replace(" ", "_") for i in col_list]
+    #working_df.columns = titles
     print_heading("Original Dataset")
     print(working_df)
 
     # ~RESPONSE~
     # y = the_ds.target  # assign the response here #chg
-    resp = input("What is desired respnose |default = target ") or "target"
+    resp = input('What is desired respnose |default = target ') or 'target'
     res_type = tot(working_df[resp])
     print_heading("Response type is " + res_type)
 
     # Group Predictor types
     type_mask = [tot(working_df[i]) for i in col_list]
-    bool_list = [col_is_bool(working_df, i) for i in col_list]
-    bool_df = pd.DataFrame(bool_list, index=[col_list])
+    bool_list = [col_is_bool(working_df,i) for i in col_list]
+    bool_df = pd.DataFrame(bool_list,index=[col_list])
     predictor_array = np.column_stack((col_list, type_mask))
     pred_df = pd.DataFrame(predictor_array, columns=["Predictor", "Category"])
 
@@ -375,30 +387,40 @@ def main():
 
     cont_feature_df = pred_df[
         pred_df["Category"] == "continuous"
-    ]  # where tot continuous and bool_check false
+        ]  # where tot continuous and bool_check false
     try:
-        cont_feature_df = cont_feature_df.drop("target", axis=1, inplace=True)
+        cont_feature_df = cont_feature_df.drop(
+            "target", axis=1, inplace=True
+        )
     except Exception:
         pass
 
     cat_feature_df = pred_df[
         pred_df["Category"] != "continuous"
-    ]  # where tot not continuous or binary
+        ]  # where tot not continuous or binary
     try:
-        cat_feature_df = cat_feature_df.drop("target", axis=1, inplace=True)
+        cat_feature_df = cat_feature_df.drop(
+            "target", axis=1, inplace=True
+        )
     except Exception:
         pass
 
-    binary_feature_df = pred_df[pred_df["Category"] == "binary"]  # where tot binary
+    binary_feature_df = pred_df[
+        pred_df["Category"] == "binary"
+        ]  # where tot binary
     try:
-        binary_feature_df = binary_feature_df.drop("target", axis=1, inplace=True)
+        binary_feature_df = binary_feature_df.drop(
+            "target", axis=1, inplace=True
+        )
     except Exception:
         pass
 
     # Need to check if boolean since sometimes binary fails to cathc booleans
     bool_feature_df = bool_df.dropna()
     try:
-        bool_feature_df = bool_feature_df.drop("target", axis=1, inplace=True)
+        bool_feature_df = bool_feature_df.drop(
+            "target", axis=1, inplace=True
+        )
     except Exception:
         pass
 
@@ -406,8 +428,8 @@ def main():
     print("No Categorical!") if cat_feature_df.empty else print(cat_feature_df)
     print("No Boolean!") if binary_feature_df.empty else print(binary_feature_df)
 
-    # cont_feature_list = list(cont_feature_df["Predictor"])
-    # cat_feature_list = list(cat_feature_df["Predictor"])
+    cont_feature_list = list(cont_feature_df["Predictor"])
+    cat_feature_list = list(cat_feature_df["Predictor"])
 
     # Generate Report DF
     # 1
@@ -420,74 +442,81 @@ def main():
         "If Cont v Cat",
     )
     report_df = pd.DataFrame("", index=col_list, columns=report_col)
-    report_df = report_df.drop(["target"])
+    report_df = report_df.drop(['target'])
     # 2
-    report_col_2 = ("Correlation Metrics",)
+    report_col_2 = ('Correlation Con v Con',
+                    'Correlation Con v Cat',)
     report_df_2 = pd.DataFrame("", index=col_list, columns=report_col_2)
     pred_df = pred_df.set_index(["Predictor"])
-    pred_df = pred_df.drop(["target"])
+    pred_df = pred_df.drop(['target'])
 
     # Update Report with data
     report_df.index.name = "Predictor"
     pred_df.index = report_df.index
 
     # Make plots
-    #    for i in pred_df:
-    #            if res_type == "continuous" and i in cat_feature_list:
+#    for i in pred_df:
+#            if res_type == "continuous" and i in cat_feature_list:
     con_cat_file_list = plot_cont_cat(the_ds)
-    temp_df = pd.DataFrame(con_cat_file_list, columns=["If Cont v Cat"])
+    temp_df = pd.DataFrame(con_cat_file_list, columns=['If Cont v Cat'])
     list_to_df(temp_df, report_df, "If Cont v Cat")
-    #            elif res_type == "continuous" and i in cont_feature_list:
+#            elif res_type == "continuous" and i in cont_feature_list:
     con_con_file_list, tp_list = plot_cont_cont(the_ds)
-    temp_df = pd.DataFrame(con_con_file_list, columns=["Regression"])
+    temp_df = pd.DataFrame(con_con_file_list, columns=['Regression'])
     list_to_df(temp_df, report_df, "Regression")
-    temp_df = pd.DataFrame(tp_list, columns=["p-val_&_t-val"])
+    temp_df = pd.DataFrame(tp_list, columns=['p-val_&_t-val'])
     list_to_df(temp_df, report_df, "p-val_&_t-val")
 
-    #    bool_list_1 =
+#    bool_list_1 =
 
     # else:
 
     cat_con_file_list = plot_cat_cont(the_ds)
-    temp_df = pd.DataFrame(cat_con_file_list, columns=["Logistic_Regression"])
+    temp_df = pd.DataFrame(cat_con_file_list, columns=['Logistic_Regression'])
     list_to_df(temp_df, report_df, "Logistic_Regression")
     cat_cat_file_list = plot_cat_cat(the_ds)
-    temp_df = pd.DataFrame(cat_cat_file_list, columns=["If Cat v Cat"])
+    temp_df = pd.DataFrame(cat_cat_file_list, columns=['If Cat v Cat'])
     list_to_df(temp_df, report_df, "If Cat v Cat")
-    #    bool_list_2 =
+#    bool_list_2 =
     # correlation
-    corr_con_con_list = [coor_con_con(working_df, i, "target") for i in col_list]
-    temp_df = pd.DataFrame(corr_con_con_list, columns=["Correlation Metrics"])
-    list_to_df(temp_df, report_df_2, "Correlation Metrics")
-    report_df_2 = report_df_2.drop(["target"])
-    report_df_2 = report_df_2.sort_values(["Correlation Metrics"], ascending=[False])
-    report_df_2.to_html(
-        "HW_report_2_" + datetime.now().strftime("%Y_%m_%d-%H_%M") + ".html"
-    )
+    #con con
+    corr_con_con_list = [coor_con_con(working_df, i, 'target') for i in col_list]
+    temp_df = pd.DataFrame(corr_con_con_list, columns=['Correlation Con v Con'])
+    list_to_df(temp_df, report_df_2, 'Correlation Con v Con')
+    coor_con_cat_list = [coor_con_cat(working_df, i, 'target') for i in col_list]
+    temp_df = pd.DataFrame(corr_con_con_list, columns=['Correlation Con v Cat'])
+    list_to_df(temp_df, report_df_2, 'Correlation Con v Cat')
+
+    report_df_2 = report_df_2.sort_values(['Correlation Con v Con'], ascending=[False])
+    report_df_2 = report_df_2.drop(['target'])
+    report_df_2.to_html("HW_report_2_" + datetime.now().strftime("%Y_%m_%d-%H_%M") + ".html")
+    #con cat
 
     # add plots to report
 
     list_to_df(pred_df, report_df, "Category")
 
+
+
+
+
     # Make some cols clickable
-    report_style = (
-        report_df.style.format({"Regression": clickable_report})
-        .format({"Logistic_Regression": clickable_report})
-        .format({"Difference_with_mean": clickable_report})
-        .format({"Random_Forest": clickable_report})
-    )
-    # Save report to HTML
-    print("See report in current directory")
-    #    report_df.DataFrame.to_html(
-    #       "HW_report_" + datetime.now().strftime("%Y_%m_%d-%H_%M") + ".html"
-    #    )
+    report_style = report_df.style.format({'Regression': clickable_report})\
+        .format({'Logistic_Regression': clickable_report})\
+        .format({'If Cat v Cat': clickable_report})\
+        .format({'If Cont v Cat': clickable_report})
+# Save report to HTML
+    print('See report in current directory')
+#    report_df.DataFrame.to_html(
+#       "HW_report_" + datetime.now().strftime("%Y_%m_%d-%H_%M") + ".html"
+#    )
     report = report_style.render()
-    with open(
-        "HW_report_" + datetime.now().strftime("%Y_%m_%d-%H_%M") + ".html", "w"
-    ) as temp:
+    with open("HW_report_" + datetime.now().strftime("%Y_%m_%d-%H_%M") + ".html", "w") as temp:
         temp.write(report)
 
-    #    report_html = report_style.render()
+
+
+#    report_html = report_style.render()
     print(datetime.now() - start_t)
 
 
