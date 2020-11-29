@@ -10,3 +10,8 @@ echo exporting
 docker exec -it db-container bash -c 'mysql -h localhost -u root -ppass --database bbdb --batch -e "select batter,(sum(Hits)/sum(atbats)) as batavg from rolling_100 group by batter order by batter;"'  > report.txt
 sed -e 's/\s\+/,/g' report.txt > report.csv
 echo report.csv \&.txt created
+echo shutting down
+docker-compose down
+echo cleaning up
+docker system prune-a
+echo have a nice day \:\)
