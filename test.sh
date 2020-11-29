@@ -15,6 +15,4 @@ docker-compose down
 sleep 5s
 echo cleaning up
 docker system prune -a
-sleep 1s
-y
 echo have a nice day \:\)
