@@ -1,5 +1,6 @@
 docker-compose up -d
 echo Please wait... Loading bbdb
+#sleep 10s
 docker container exec -i db-container mysql bbdb < baseball.sql -ppass
 echo Complete
 docker exec -i db-container mysql bbdb -u root -ppass -e "drop table if exists rolling_100;"
