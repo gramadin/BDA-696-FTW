@@ -14,5 +14,5 @@ echo shutting down
 docker-compose down
 sleep 5s
 echo cleaning up
-docker system prune-a
+docker system prune -a
 echo have a nice day \:\)
