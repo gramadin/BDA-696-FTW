@@ -11,6 +11,7 @@ in the root folder with baseball.sql extracted
 >run test.sh
 
 bash script not functioning as intended for report
+> open in a text editor. optput is space delimited
 
 
 
