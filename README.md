@@ -8,11 +8,9 @@
   
 in the root folder with baseball.sql extracted
 
->docker-compose up -d\
->docker container exec -i db-container mysql bbdb < baseball.sql -ppass\
->run .sql or query commands in test.sh
+>run test.sh
 
-bash script not functioning as intended
+bash script not functioning as intended for report
 
 
 
