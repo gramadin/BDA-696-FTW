@@ -151,5 +151,6 @@ media
 static
 
 # Project related ignores (place project related ignores below here)
-db
-results
+db/
+results/
+baseball.sql
