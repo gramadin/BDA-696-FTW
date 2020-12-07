@@ -9,9 +9,10 @@ create table team_circ as
 select g2.game_id
 		, local_date
 		, (select name_full from team t2  where tbc.team_id = t2.team_id) as Home_Team 
+		, (select time_zone from circ_rhythm cr where tbc.team_id = cr.team_id) as Home_TZ
 		, (select name_full from team t2  where tbc.opponent_team_id = t2.team_id) as Away_Team
 		, (select time_zone from circ_rhythm cr where tbc.opponent_team_id = cr.team_id) as Away_TZ -- home team is always 0
-		, (0-(select time_zone from circ_rhythm cr where tbc.opponent_team_id = cr.team_id)) as Net_Jet_Lag -- positive values are travel east negative values are travel west
+		, ((select time_zone from circ_rhythm cr where tbc.opponent_team_id = cr.team_id)-(select time_zone from circ_rhythm cr where tbc.team_id = cr.team_id)) as Net_Jet_Lag -- positive values are travel east negative values are travel west
 from team_batting_counts tbc 
 join team t3 on tbc.team_id = t3.team_id
 join game g2 on tbc.game_id = g2.game_id 

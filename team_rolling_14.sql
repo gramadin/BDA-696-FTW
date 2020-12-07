@@ -1,7 +1,7 @@
 # Created By Ed Smythe
 # Dec 2020
 # Used from class demo and updated with additional columns
-# ~2m2s
+# ~2m29s
 use baseball;
 
 drop table if exists rolling_014;
@@ -70,11 +70,12 @@ select
 	, (1/(1+power(nullif(SUM(tbc2.opponent_finalScore)/nullif(SUM(tbc2.finalScore),0),0),1.83))) as pathag_v1
 	, (1/(1+power(nullif(SUM(tbc2.opponent_finalScore)/nullif(SUM(tbc2.finalScore),0),0),((1.50*(log(((SUM(tbc2.finalScore)+SUM(tbc2.opponent_finalScore))/(count(tbc1.game_id)/2)))))+.045)))) as pathag_v2
 	, (1/(1+power(nullif(SUM(tbc2.opponent_finalScore)/nullif(SUM(tbc2.finalScore),0),0),power(((SUM(tbc2.finalScore)+SUM(tbc2.opponent_finalScore))/(count(tbc1.game_id)/2)),0.287)))) as pathag_v3
+	, tc.Net_Jet_Lag 
 	FROM team_batting_counts tbc1
 	JOIN team t ON tbc1.team_id = t.team_id 
 	JOIN game gl ON gl.game_id = tbc1.game_id AND gl.type IN ("R")
 	JOIN team_batting_counts tbc2 ON tbc1.team_id = tbc2.team_id
-	join circ_rhythm cr 
+	join team_circ tc  on tbc1.game_id = tc.game_id 
 	JOIN game g2 ON g2.game_id = tbc2.game_id AND
 		g2.type IN ("R") AND
 		g2.local_date < gl.local_date AND
