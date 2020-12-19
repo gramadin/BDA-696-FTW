@@ -9,6 +9,7 @@ create table rolling_180 as
 select
 	tbc1.team_id
 	, t.name_full as Home_Team
+	, tbc1.win 
 	, (select name_full from team t2  where tbc1.opponent_team_id = t2.team_id) as Away_Team
 	, tbc1.game_id
 	, gl.local_date
@@ -60,12 +61,14 @@ select
 	, SUM(tbc2.Sac_Fly_DP) AS Sac_Fly_DP
 	, SUM(tbc2.Sacrifice_Bunt_DP) AS Sacrifice_Bunt_DP
 	, SUM(tbc2.Single) AS Single
-	, SUM(tbc2.Strikeout) as Strickout
+	, SUM(tbc2.Strikeout) as Strikeout
+	, (SUM(tbc2.Strikeout)/nullif(SUM(tbc2.plateApperance),0)) as K_pct
 	, SUM(tbc2.`Strikeout_-_DP`) AS Strikeout_DP # Used ` instead of ' due to local system. If you have issues change this for your system
 	, SUM(tbc2.`Strikeout_-_TP`) AS Strikeout_TP # Used ` instead of ' due to local system. If you have issues change this for your system
 	, SUM(tbc2.Triple) AS Triple
 	, SUM(tbc2.Triple_Play) AS Triple_Play
 	, SUM(tbc2.Walk) AS Walk
+	, (SUM(tbc2.Walk)/nullif(SUM(tbc2.plateApperance),0)) as BB_pct
 	, SUM(tbc2.`Double`)+SUM(tbc2.Triple)+SUM(tbc2.Home_Run) AS XBH
 	, (1/(1+power(nullif(SUM(tbc2.opponent_finalScore)/nullif(SUM(tbc2.finalScore),0),0),1.83))) as pathag_v1
 	, (1/(1+power(nullif(SUM(tbc2.opponent_finalScore)/nullif(SUM(tbc2.finalScore),0),0),((1.50*(log(((SUM(tbc2.finalScore)+SUM(tbc2.opponent_finalScore))/(count(tbc1.game_id)/2)))))+.045)))) as pathag_v2
