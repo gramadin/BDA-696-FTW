@@ -18,16 +18,16 @@ if ! mysql -h db-container -uuser -ppass -e 'use baseball'; then			# pragma: all
 fi
 
 # Run your scripts
-mysql -h db-container -uuser -ppass baseball < /sql/fix_stolen_bases.sql.sql	# pragma: allowlist secret
-mysql -h db-container -uuser -ppass baseball < /sql/circadian.sql				# pragma: allowlist secret
-mysql -h db-container -uuser -ppass baseball < /sql/net_jet_lag.sql				# pragma: allowlist secret
-mysql -h db-container -uuser -ppass baseball < /sql/team_rolling_14.sql			# pragma: allowlist secret
-mysql -h db-container -uuser -ppass baseball < /sql/team_rolling_30.sql			# pragma: allowlist secret
-mysql -h db-container -uuser -ppass baseball < /sql/team_rolling_90.sql			# pragma: allowlist secret
-mysql -h db-container -uuser -ppass baseball < /sql/team_rolling_180.sql		# pragma: allowlist secret
+mysql -h db-container -uuser -ppass baseball < /fix_stolen_bases.sql.sql	# pragma: allowlist secret
+mysql -h db-container -uuser -ppass baseball < /circadian.sql				# pragma: allowlist secret
+mysql -h db-container -uuser -ppass baseball < /net_jet_lag.sql				# pragma: allowlist secret
+mysql -h db-container -uuser -ppass baseball < /team_rolling_14.sql			# pragma: allowlist secret
+mysql -h db-container -uuser -ppass baseball < /team_rolling_30.sql			# pragma: allowlist secret
+mysql -h db-container -uuser -ppass baseball < /team_rolling_90.sql			# pragma: allowlist secret
+mysql -h db-container -uuser -ppass baseball < /team_rolling_180.sql		# pragma: allowlist secret
 
 
 # Get results running python code
 mysql -h db-container -uuser -ppass baseball -e 							# pragma: allowlist secret
 
-echo have a nice day \:\)
+echo This dosen\'t work\, but have a nice day \:\) 
