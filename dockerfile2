@@ -1,0 +1,11 @@
+# base image
+FROM mariadb:10.5.8
+
+ADD baseball.sql /docker-entrypoint-initdb.d/baseball.sql
+ADD fix_stolen_bases.sql /docker-entrypoint-initdb.d/fix_stolen_bases.sql
+ADD circadian.sql /docker-entrypoint-initdb.d/circadian.sql
+ADD net_jet_lag.sql	/docker-entrypoint-initdb.d/net_jet_lag.sql
+ADD team_rolling_14.sql	/docker-entrypoint-initdb.d/team_rolling_14.sql
+ADD team_rolling_30.sql	/docker-entrypoint-initdb.d/team_rolling_30.sql
+ADD team_rolling_90.sql	/docker-entrypoint-initdb.d/team_rolling_90.sql
+ADD team_rolling_180.sql /docker-entrypoint-initdb.d/team_rolling_180.sql

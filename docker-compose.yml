@@ -1,0 +1,41 @@
+version: "3.3"
+services:
+
+  code:
+    container_name: code
+    depends_on:
+      - db
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - ./results:/results
+    networks:
+      - backend
+
+  db:
+    #image: mariadb:10.5.8
+    build:
+      context: .
+      dockerfile: dockerfile2
+    container_name: db-container
+    restart: always
+    volumes:
+        - db-data:/var/lib/mariadb
+    networks:
+        - backend
+    environment:
+        MYSQL_USER: user
+        MYSQL_PASSWORD: pass        # pragma: allowlist secret
+        MYSQL_DATABASE: baseball
+        MYSQL_ROOT_PASSWORD: pass   # pragma: allowlist secret
+        PORT: 3306
+    ports:
+        - 5000:3306                
+        
+volumes:
+    db-data:
+    base:
+        
+networks:
+    backend:
